@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Belajar Reactjs</title>
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+
+<body>
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+        // Cara Membuat Props
+        class Message extends React.Component {
+            render() {
+                return (
+                    <div>
+                        <small>{this.props.sender} :</small>
+                        <small>{this.props.tanggal}</small>
+                        <p>{this.props.content}</p>
+                        <hr />
+                    </div>
+                );
+            }
+        }
+
+        // menggunakan komponen
+        var tanggal = " 08 Sep 2021";
+
+        let chat = (
+            <div>
+                <Message sender="dian" tanggal={tanggal} content="Hi, Apa kabar?" />
+                <Message tanggal={tanggal} sender="petanikode" content="Kabar Baik" />
+            </div>
+        );
+
+        // render komponen ke RealDOM
+        ReactDOM.render(chat, document.getElementById("root"));
+    </script>
+
+</body>
+
+</html>

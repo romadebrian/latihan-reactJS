@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Belajar Reactjs</title>
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+
+<body>
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+        class Header extends React.Component {
+            constructor() {
+                super();
+                // membuat objek state
+                this.state = {
+                    title: "Belajar Reactjs",
+                    subTitle: "Panduan step-by-step Reactjs untuk pemula"
+                };
+            }
+
+            changeTitle = () => {
+                this.setState({
+                    title: "Tutorial Reactjs Petani Kode"
+                });
+            }
+
+            render() {
+                return (
+                    <div>
+                        <h1>{this.state.title}</h1>
+                        <h2>{this.state.subTitle}</h2>
+                        <button onClick={this.changeTitle}>Ubah Judul</button>
+                    </div>
+                );
+            }
+        }
+
+        // render komponen ke RealDOM
+        ReactDOM.render(<Header />, document.getElementById("root"));
+    </script>
+
+</body>
+
+</html>
