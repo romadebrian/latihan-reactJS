@@ -45,7 +45,7 @@
         return (
           <div class="card">
             <p class="title"> {props.name} </p>
-            <p>Front End Dev</p>
+            <p>{props.job}</p>
           </div>
         );
       };
@@ -53,9 +53,9 @@
       const App = () => {
         return (
           <div>
-            <Card name="Prowito Hudoro" />
-            <Card name="Mila Ikrima" />
-            <Card name="Mukidhi" />
+            <Card name="Prowito Hudoro" job="FrontEnd Dev" />
+            <Card name="Mila Ikrima" job="Project Manager" />
+            <Card name="Mukidhi" job="UI/UX" />
           </div>
         );
       };
