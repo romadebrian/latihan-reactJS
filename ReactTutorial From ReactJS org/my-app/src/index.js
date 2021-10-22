@@ -6,10 +6,11 @@ import reportWebVitals from "./reportWebVitals";
 
 import HelloComponents from "./component/HelloComponent";
 import StateFullComponents from "./countainer/StateFullComponent";
+import YoutubeComp from "./component/YoutubeComp/YoutubeComp";
 
 ReactDOM.render(
   <React.StrictMode>
-    <HelloComponents /> <StateFullComponents />
+    <YoutubeComp />
   </React.StrictMode>,
   document.getElementById("root")
 );
