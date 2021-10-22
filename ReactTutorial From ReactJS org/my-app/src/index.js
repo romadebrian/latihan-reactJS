@@ -7,10 +7,11 @@ import reportWebVitals from "./reportWebVitals";
 import HelloComponents from "./component/HelloComponent";
 import StateFullComponents from "./countainer/StateFullComponent";
 import YoutubeComp from "./component/YoutubeComp/YoutubeComp";
+import Home from "./countainer/Home/Home";
 
 ReactDOM.render(
   <React.StrictMode>
-    <YoutubeComp />
+    <Home />
   </React.StrictMode>,
   document.getElementById("root")
 );
