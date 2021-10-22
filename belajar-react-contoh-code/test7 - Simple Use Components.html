@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .card {
+        border: 1px solid #eee;
+        border-radius: 8px;
+        padding: 20px;
+        width: 150px;
+        box-shadow: 0px 2px 2px #ccc;
+      }
+
+      .title {
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 8px;
+      }
+
+      p {
+        margin: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="id"></div>
+
+    <script
+      src="https://unpkg.com/react@17/umd/react.production.min.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+      const Card = (props) => {
+        return (
+          <div class="card">
+            <p class="title"> {props.name} </p>
+            <p>Front End Dev</p>
+          </div>
+        );
+      };
+
+      const App = () => {
+        return (
+          <div>
+            <Card name="Prowito Hudoro" />
+            <Card name="Mila Ikrima" />
+            <Card name="Mukidhi" />
+          </div>
+        );
+      };
+
+      ReactDOM.render(<App />, document.getElementById("id"));
+    </script>
+  </body>
+</html>
