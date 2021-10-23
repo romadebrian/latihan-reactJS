@@ -15,7 +15,7 @@ class Product extends Component {
         </div>
         <div className="card">
           <div className="img-thumb-prod">
-            <img src="img/1.jpg" alt="imgCard" />
+            <img src="img/pack.png" alt="imgCard" width="100" height="100" />
           </div>
           <p className="product-title">Daging Ayam</p>
           <p className="product-price">Rp 400.000</p>
