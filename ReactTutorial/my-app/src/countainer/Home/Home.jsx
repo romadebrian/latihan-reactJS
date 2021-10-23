@@ -1,12 +1,12 @@
 import React, { Component } from "react"; // rcc
-import YoutubeComp from "../../component/YoutubeComp/YoutubeComp";
+// import YoutubeComp from "../../component/YoutubeComp/YoutubeComp";
 import Product from "../Product/Product";
 
 class Home extends Component {
   render() {
     return (
       <div>
-        <YoutubeComp
+        {/* <YoutubeComp
           time="7.12"
           title="Tutorial ReactJs - Bagian 1"
           desc="2x ditonton, 2 hari yang lalu"
@@ -26,7 +26,7 @@ class Home extends Component {
           title="Tutorial ReactJs - Bagian 4"
           desc="1k ditonton, 14 hari yang lalu"
         />
-        <YoutubeComp />
+        <YoutubeComp /> */}
         <Product />
       </div>
     );
