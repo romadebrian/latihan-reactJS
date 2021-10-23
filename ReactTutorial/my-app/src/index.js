@@ -1,12 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./App";
+// import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
-import HelloComponents from "./component/HelloComponent";
-import StateFullComponents from "./countainer/StateFullComponent";
-import YoutubeComp from "./component/YoutubeComp/YoutubeComp";
+// import HelloComponents from "./component/HelloComponent";
+// import StateFullComponents from "./countainer/StateFullComponent";
+// import YoutubeComp from "./component/YoutubeComp/YoutubeComp";
 import Home from "./countainer/Home/Home";
 
 ReactDOM.render(

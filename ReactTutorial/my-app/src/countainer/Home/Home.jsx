@@ -1,5 +1,6 @@
 import React, { Component } from "react"; // rcc
 import YoutubeComp from "../../component/YoutubeComp/YoutubeComp";
+import Product from "../Product/Product";
 
 class Home extends Component {
   render() {
@@ -26,6 +27,7 @@ class Home extends Component {
           desc="1k ditonton, 14 hari yang lalu"
         />
         <YoutubeComp />
+        <Product />
       </div>
     );
   }
