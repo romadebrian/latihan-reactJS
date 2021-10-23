@@ -2,6 +2,24 @@ import React, { Component, Fragment } from "react";
 import "./Product.css";
 
 class Product extends Component {
+  state = {
+    order: 4,
+  };
+
+  handlerPlus = () => {
+    this.setState({
+      order: this.state.order + 1,
+    });
+  };
+
+  handlerMinus = () => {
+    if (this.state.order > 0) {
+      this.setState({
+        order: this.state.order - 1,
+      });
+    }
+  };
+
   render() {
     return (
       <Fragment>
@@ -16,7 +34,7 @@ class Product extends Component {
           </div>
           <div className="troley">
             <img src="img/pack.png" alt="ImgTroli" />
-            <div className="count">3</div>
+            <div className="count">{this.state.order}</div>
           </div>
         </div>
         <div className="card">
@@ -26,9 +44,13 @@ class Product extends Component {
           <p className="product-title">Daging Ayam</p>
           <p className="product-price">Rp 400.000</p>
           <div className="counter">
-            <button className="minus"> - </button>
-            <input type="text" value={3} />
-            <button className="plus"> + </button>
+            <button className="minus" onClick={this.handlerMinus}>
+              -
+            </button>
+            <input type="text" value={this.state.order} />
+            <button className="plus" onClick={this.handlerPlus}>
+              +
+            </button>
           </div>
         </div>
       </Fragment>
