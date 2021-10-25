@@ -40,14 +40,12 @@ class Home extends Component {
           desc="1k ditonton, 14 hari yang lalu"
         />
         <YoutubeComp /> */}
-
         {/* <p> Product </p>
         <hr />
         <Product /> */}
-
         <p>LifeCycleComponents</p>
         <hr />
-        {this.state.showComponent ? <LifeCycleComp /> : null}
+        {this.state.showComponent ? <LifeCycleComp /> : null} {/*if else */}
       </div>
     );
   }
