@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from "react";
+import CardProduct from "./CardProduct/CardProduct";
 import "./Product.css";
 
 class Product extends Component {
@@ -6,18 +7,10 @@ class Product extends Component {
     order: 4,
   };
 
-  handlerPlus = () => {
+  ngeHandlePerubahanJumblah = (newvalue) => {
     this.setState({
-      order: this.state.order + 1,
+      order: newvalue,
     });
-  };
-
-  handlerMinus = () => {
-    if (this.state.order > 0) {
-      this.setState({
-        order: this.state.order - 1,
-      });
-    }
   };
 
   render() {
@@ -37,22 +30,11 @@ class Product extends Component {
             <div className="count">{this.state.order}</div>
           </div>
         </div>
-        <div className="card">
-          <div className="img-thumb-prod">
-            <img src="img/1.jpg" alt="imgCard" width="100" height="400" />
-          </div>
-          <p className="product-title">Daging Ayam</p>
-          <p className="product-price">Rp 400.000</p>
-          <div className="counter">
-            <button className="minus" onClick={this.handlerMinus}>
-              -
-            </button>
-            <input type="text" value={this.state.order} />
-            <button className="plus" onClick={this.handlerPlus}>
-              +
-            </button>
-          </div>
-        </div>
+        <CardProduct
+          KetikaJumblahBerubah={(value) =>
+            this.ngeHandlePerubahanJumblah(value)
+          }
+        />
       </Fragment>
     );
   }
