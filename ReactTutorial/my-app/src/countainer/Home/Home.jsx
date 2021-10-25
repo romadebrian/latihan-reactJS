@@ -9,11 +9,11 @@ class Home extends Component {
   };
 
   componentDidMount() {
-    setTimeout(() => {
-      this.setState({
-        showComponent: false,
-      });
-    }, 10000);
+    // setTimeout(() => {
+    //   this.setState({
+    //     showComponent: false,
+    //   });
+    // }, 10000);
   }
 
   render() {

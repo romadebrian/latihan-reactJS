@@ -17,11 +17,11 @@ class LifeCycleComp extends Component {
   // sering digunakkan
   componentDidMount() {
     console.log("componentDidMount");
-    setTimeout(() => {
-      this.setState({
-        count: 2,
-      });
-    }, 5000);
+    // setTimeout(() => {
+    //   this.setState({
+    //     count: 2,
+    //   });
+    // }, 5000);
   }
 
   shouldComponentUpdate(nextProps, nextState) {
@@ -41,10 +41,22 @@ class LifeCycleComp extends Component {
   componentWillUnmount() {
     console.log("componentWillUnmount");
   }
+
+  changeCount = () => {
+    this.setState({
+      count: this.state.count + 1,
+    });
+  };
+
   // sering digunakkan
   render() {
     console.log("render");
-    return <button className="btn">Component Button {this.state.count}</button>;
+    return (
+      <button className="btn" onClick={this.changeCount}>
+        {" "}
+        Button {this.state.count}
+      </button>
+    );
   }
 }
 
