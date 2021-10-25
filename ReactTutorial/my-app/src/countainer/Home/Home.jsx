@@ -1,6 +1,7 @@
 import React, { Component } from "react"; // rcc
+import LifeCycleComp from "../LifeCycleComp/LifeCycleComp";
 // import YoutubeComp from "../../component/YoutubeComp/YoutubeComp";
-import Product from "../Product/Product";
+// import Product from "../Product/Product";
 
 class Home extends Component {
   render() {
@@ -27,7 +28,14 @@ class Home extends Component {
           desc="1k ditonton, 14 hari yang lalu"
         />
         <YoutubeComp /> */}
-        <Product />
+
+        {/* <p> Product </p>
+        <hr />
+        <Product /> */}
+
+        <p>LifeCycleComponents</p>
+        <hr />
+        <LifeCycleComp />
       </div>
     );
   }
