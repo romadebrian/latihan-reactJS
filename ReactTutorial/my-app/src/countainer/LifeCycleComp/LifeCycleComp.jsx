@@ -25,7 +25,15 @@ class LifeCycleComp extends Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    console.log("shouldComponentUpdate");
+    // console.log("shouldComponentUpdate");
+    console.group("shouldComponentUpdate");
+    console.log("nextProps: ", nextProps);
+    console.log("nextState: ", nextState);
+    console.log("this state: ", this.state);
+    console.groupEnd();
+    if (nextState.count >= 4) {
+      return false;
+    }
     return true;
   }
 
