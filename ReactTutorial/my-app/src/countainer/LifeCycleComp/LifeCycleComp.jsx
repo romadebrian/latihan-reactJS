@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./LifeCycleComp.css";
 
 class LifeCycleComp extends Component {
+  // sering digunakkan
   constructor(props) {
     super(props);
     this.state = {
@@ -13,14 +14,14 @@ class LifeCycleComp extends Component {
     console.log("getDerivedStateFormProps");
     return null;
   }
-
+  // sering digunakkan
   componentDidMount() {
     console.log("componentDidMount");
     setTimeout(() => {
       this.setState({
         count: 2,
       });
-    }, 3000);
+    }, 5000);
   }
 
   shouldComponentUpdate(nextProps, nextState) {
@@ -32,15 +33,15 @@ class LifeCycleComp extends Component {
     console.log("getSnapshotBeforeUpdate");
     return null;
   }
-
+  // sering digunakkan
   componentDidUpdate(prevProps, prevState, snapshot) {
     console.log("componentDidUpdate");
   }
-
+  // sering digunakkan
   componentWillUnmount() {
     console.log("componentWillUnmount");
   }
-
+  // sering digunakkan
   render() {
     console.log("render");
     return <button className="btn">Component Button {this.state.count}</button>;
