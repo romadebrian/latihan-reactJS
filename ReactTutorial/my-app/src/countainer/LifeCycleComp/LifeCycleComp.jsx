@@ -16,14 +16,21 @@ class LifeCycleComp extends Component {
 
   componentDidMount() {
     console.log("componentDidMount");
+    setTimeout(() => {
+      this.setState({
+        count: 2,
+      });
+    }, 3000);
   }
 
   shouldComponentUpdate(nextProps, nextState) {
     console.log("shouldComponentUpdate");
+    return true;
   }
 
   getSnapshotBeforeUpdate(prevProps, prevState) {
     console.log("getSnapshotBeforeUpdate");
+    return null;
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
@@ -36,7 +43,7 @@ class LifeCycleComp extends Component {
 
   render() {
     console.log("render");
-    return <button className="btn">Component Button</button>;
+    return <button className="btn">Component Button {this.state.count}</button>;
   }
 }
 

@@ -4,6 +4,16 @@ import LifeCycleComp from "../LifeCycleComp/LifeCycleComp";
 // import Product from "../Product/Product";
 
 class Home extends Component {
+  state = {
+    showComponent: true,
+  };
+
+  componentDidMount() {
+    this.setState({
+      showComponent: false,
+    });
+  }
+
   render() {
     return (
       <div>
@@ -35,7 +45,7 @@ class Home extends Component {
 
         <p>LifeCycleComponents</p>
         <hr />
-        <LifeCycleComp />
+        {this.state.showComponent ? <LifeCycleComp /> : null}
       </div>
     );
   }
