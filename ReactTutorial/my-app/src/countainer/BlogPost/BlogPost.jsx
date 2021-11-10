@@ -8,10 +8,16 @@ class BlogPost extends Component {
     post: [],
   };
 
+  getPostApi = () => {
+    axios.get("http://localhost:3004/posts").then((result) => {
+      this.setState({
+        post: result.data,
+      });
+    });
+  };
+
   handleRemove = (data) => {
-    axios
-      .delete("http://localhost:3004/posts/${data}")
-      .then((res) => console.log(res));
+    axios.delete(`http://localhost:3004/posts/${data}`).then(this.getPostApi); //Untuk merefresh list item
   };
 
   componentDidMount() {
@@ -23,11 +29,7 @@ class BlogPost extends Component {
     //     });
     //   });
 
-    axios.get("http://localhost:3004/posts").then((result) => {
-      this.setState({
-        post: result.data,
-      });
-    });
+    this.getPostApi();
   }
 
   render() {
