@@ -53,6 +53,7 @@
   border-radius: 4px;
   outline: none;
   margin-top: 18px;
+  height: 35px;
 }
 
 .remove:hover {
