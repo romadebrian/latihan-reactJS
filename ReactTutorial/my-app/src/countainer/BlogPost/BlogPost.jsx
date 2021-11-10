@@ -36,6 +36,21 @@ class BlogPost extends Component {
     return (
       <Fragment>
         <h2 className="section-title">Blog Post</h2>
+
+        <div className="form-add-post">
+          <label htmlFor="title">Title</label>
+          <input type="text" name="title" placeholder="add title" />
+          <label htmlFor="body-content">Blog Content</label>
+          <textarea
+            name="body-content"
+            id="body-content"
+            cols="30"
+            rows="10"
+            placeholder="add blog content"
+          ></textarea>
+          <button className="btn-submit">Simpan</button>
+        </div>
+
         {this.state.post.map((post) => {
           return <Post key={post.id} data={post} remove={this.handleRemove} />;
         })}
