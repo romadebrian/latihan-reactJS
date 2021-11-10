@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from "react"; //rcc
+import Post from "../../component/Post/Post";
 import "./BlogPost.css";
 
 class BlogPost extends Component {
@@ -6,15 +7,7 @@ class BlogPost extends Component {
     return (
       <Fragment>
         <h2 className="section-title">Blog Post</h2>
-        <div className="post">
-          <div className="img-thumb">
-            <img src="https://placeimg.com/200/150/tech" alt="dummy" />
-          </div>
-          <div className="content">
-            <p className="title">Dummy Tditle</p>
-            <p className="desc">Dummy Body here</p>
-          </div>
-        </div>
+        <Post title="Title" desc="Description" />
       </Fragment>
     );
   }
