@@ -9,6 +9,7 @@ const Post = (props) => {
       <div className="content">
         <p className="title">{props.title}</p>
         <p className="desc">{props.desc}</p>
+        <button> Remove </button>
       </div>
     </div>
   );

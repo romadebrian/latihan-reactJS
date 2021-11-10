@@ -45,3 +45,16 @@
   font-size: 16px;
   color: #4a4a4a;
 }
+
+.remove {
+  padding: 12px 18;
+  background: #e03939;
+  color: white;
+  border-radius: 4px;
+  outline: none;
+  margin-top: 18px;
+}
+
+.remove:hover {
+  cursor: pointer;
+}
