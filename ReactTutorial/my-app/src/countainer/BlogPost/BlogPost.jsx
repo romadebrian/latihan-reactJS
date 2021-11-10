@@ -1,10 +1,11 @@
 import React, { Component, Fragment } from "react"; //rcc
+import "./BlogPost.css";
 
 class BlogPost extends Component {
   render() {
     return (
       <Fragment>
-        <h2>Blog Post</h2>
+        <h2 className="section-title">Blog Post</h2>
         <div className="post">
           <div className="img-thumb">
             <img src="https://placeimg.com/200/150/tech" alt="dummy" />

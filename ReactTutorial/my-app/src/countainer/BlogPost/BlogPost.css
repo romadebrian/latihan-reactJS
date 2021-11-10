@@ -1,22 +1,10 @@
-Iwan
-  Krisnawan
-  1
-  tahun
-  yang
-  lalu
-  file
-  css
-  untuk
-  manusia
-  di
-  masa
-  depan
-  .section-title {
+.section-title {
   margin-left: 20px;
   font-size: 20px;
   font-weight: bold;
   color: #4a4a4a;
 }
+
 .post {
   display: flex;
   border: 1px solid rgba(0, 0, 0, 0.3);
@@ -31,7 +19,7 @@ Iwan
 .img-thumb {
   width: 200px;
   height: 150px;
-  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .img-thumb img {
