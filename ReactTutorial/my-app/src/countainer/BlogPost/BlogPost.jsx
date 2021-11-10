@@ -27,12 +27,17 @@ class BlogPost extends Component {
   };
 
   handleFormChange = (event) => {
-    console.log("Form Change", event.target);
-    let title = event.target.value;
-    this.setState({
-      formBlogPost: title,
-    });
-    console.log("value obj formBlogPost", this.state.formBlogPost);
+    // console.log("Form Change", event.target);
+    let formBlogPostNew = { ...this.state.formBlogPost };
+    formBlogPostNew[event.target.name] = event.target.value;
+    this.setState(
+      {
+        formBlogPost: formBlogPostNew,
+      },
+      () => {
+        console.log("value obj formBlogPost", this.state.formBlogPost);
+      }
+    );
   };
 
   componentDidMount() {
@@ -60,13 +65,14 @@ class BlogPost extends Component {
             placeholder="add title"
             onChange={this.handleFormChange}
           />
-          <label htmlFor="body-content">Blog Content</label>
+          <label htmlFor="body">Blog Content</label>
           <textarea
-            name="body-content"
-            id="body-content"
+            name="body"
+            id="body"
             cols="30"
             rows="10"
             placeholder="add blog content"
+            onChange={this.handleFormChange}
           ></textarea>
           <button className="btn-submit">Simpan</button>
         </div>
