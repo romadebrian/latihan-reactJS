@@ -8,6 +8,12 @@ class BlogPost extends Component {
     post: [],
   };
 
+  handleRemove = (data) => {
+    axios
+      .delete("http://localhost:3004/posts/${data}")
+      .then((res) => console.log(res));
+  };
+
   componentDidMount() {
     // fetch("https://jsonplaceholder.typicode.com/posts")
     //   .then((response) => response.json())
@@ -29,7 +35,7 @@ class BlogPost extends Component {
       <Fragment>
         <h2 className="section-title">Blog Post</h2>
         {this.state.post.map((post) => {
-          return <Post key={post.id} title={post.title} desc={post.body} />;
+          return <Post key={post.id} data={post} remove={this.handleRemove} />;
         })}
       </Fragment>
     );
