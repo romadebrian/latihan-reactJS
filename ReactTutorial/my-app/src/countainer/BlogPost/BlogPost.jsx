@@ -6,6 +6,12 @@ import axios from "axios";
 class BlogPost extends Component {
   state = {
     post: [],
+    formBlogPost: {
+      id: 1,
+      title: "",
+      body: "",
+      userId: 1,
+    },
   };
 
   getPostApi = () => {
@@ -18,6 +24,15 @@ class BlogPost extends Component {
 
   handleRemove = (data) => {
     axios.delete(`http://localhost:3004/posts/${data}`).then(this.getPostApi); //Untuk merefresh list item
+  };
+
+  handleFormChange = (event) => {
+    console.log("Form Change", event.target);
+    let title = event.target.value;
+    this.setState({
+      formBlogPost: title,
+    });
+    console.log("value obj formBlogPost", this.state.formBlogPost);
   };
 
   componentDidMount() {
@@ -39,7 +54,12 @@ class BlogPost extends Component {
 
         <div className="form-add-post">
           <label htmlFor="title">Title</label>
-          <input type="text" name="title" placeholder="add title" />
+          <input
+            type="text"
+            name="title"
+            placeholder="add title"
+            onChange={this.handleFormChange}
+          />
           <label htmlFor="body-content">Blog Content</label>
           <textarea
             name="body-content"
