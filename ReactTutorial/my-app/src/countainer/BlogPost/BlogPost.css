@@ -60,3 +60,32 @@
   cursor: pointer;
 }
 
+.form-add-post {
+  box-shadow: 0px 0px 16px black;
+  width: 500px;
+  margin-left: 20px;
+  padding: 10px;
+  margin-bottom: 50px;
+  border-radius: 4px;
+}
+
+.form-add-post label {
+  display: block;
+  font-size: 14px;
+  color: #607088;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.form-add-post input,
+.form-add-post textarea {
+  outline: none;
+  border: 1px solid #687088;
+  padding: 12px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 12px;
+  color: #607088;
+}
