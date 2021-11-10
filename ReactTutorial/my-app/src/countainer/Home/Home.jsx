@@ -1,5 +1,6 @@
 import React, { Component } from "react"; // rcc
-import LifeCycleComp from "../LifeCycleComp/LifeCycleComp";
+import BlogPost from "../BlogPost/BlogPost";
+// import LifeCycleComp from "../LifeCycleComp/LifeCycleComp";
 // import YoutubeComp from "../../component/YoutubeComp/YoutubeComp";
 // import Product from "../Product/Product";
 
@@ -40,12 +41,19 @@ class Home extends Component {
           desc="1k ditonton, 14 hari yang lalu"
         />
         <YoutubeComp /> */}
+
         {/* <p> Product </p>
         <hr />
         <Product /> */}
-        <p>LifeCycleComponents</p>
+
+        {/* <p>LifeCycleComponents</p>
         <hr />
-        {this.state.showComponent ? <LifeCycleComp /> : null} {/*if else */}
+        {this.state.showComponent ? <LifeCycleComp /> : null}  */}
+        {/*if else */}
+
+        <p>Blog Post</p>
+        <hr />
+        <BlogPost />
       </div>
     );
   }
