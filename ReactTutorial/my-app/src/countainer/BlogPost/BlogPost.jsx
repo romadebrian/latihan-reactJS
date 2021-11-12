@@ -14,7 +14,7 @@ class BlogPost extends Component {
     },
     isUpdate: false,
   };
-
+  // Read Data from Database
   getPostApi = () => {
     axios
       .get("http://localhost:3004/posts?_sort=id&_order=desc")
@@ -24,7 +24,7 @@ class BlogPost extends Component {
         });
       });
   };
-
+  // Imput Data To Database
   postDataToAPI = () => {
     axios.post("http://localhost:3004/posts", this.state.formBlogPost).then(
       (res) => {
@@ -36,7 +36,7 @@ class BlogPost extends Component {
       }
     );
   };
-
+  // Update Data in Database
   putDataToAPI = () => {
     axios
       .put(
@@ -45,9 +45,19 @@ class BlogPost extends Component {
       )
       .then((res) => {
         console.log();
+        this.getPostApi();
+        this.setState({
+          isUpdate: false,
+          formBlogPost: {
+            id: 1,
+            title: "",
+            body: "",
+            userId: 1,
+          },
+        });
       });
   };
-
+  // Delete data from database
   handleRemove = (data) => {
     axios.delete(`http://localhost:3004/posts/${data}`).then(this.getPostApi); //Untuk merefresh list item
   };
@@ -64,7 +74,10 @@ class BlogPost extends Component {
     // console.log("Form Change", event.target);
     let formBlogPostNew = { ...this.state.formBlogPost };
     let timestamp = new Date().getTime();
-    formBlogPostNew["id"] = timestamp;
+    // ( ! ) artinya else atau false
+    if (!this.state.isUpdate) {
+      formBlogPostNew["id"] = timestamp;
+    }
     formBlogPostNew[event.target.name] = event.target.value;
     this.setState({
       formBlogPost: formBlogPostNew,
