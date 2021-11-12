@@ -26,6 +26,7 @@ class BlogPost extends Component {
     axios.post("http://localhost:3004/posts", this.state.formBlogPost).then(
       (res) => {
         console.log(res);
+        this.getPostApi();
       },
       (err) => {
         console.log("error: ", err);
@@ -51,7 +52,6 @@ class BlogPost extends Component {
   handleSubmit = () => {
     // console.log(this.state.formBlogPost);
     this.postDataToAPI();
-    this.getPostApi();
   };
 
   componentDidMount() {
