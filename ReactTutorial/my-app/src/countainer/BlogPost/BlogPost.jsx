@@ -22,6 +22,17 @@ class BlogPost extends Component {
     });
   };
 
+  postDataToAPI = () => {
+    axios.post("http://localhost:3004/posts", this.state.formBlogPost).then(
+      (res) => {
+        console.log(res);
+      },
+      (err) => {
+        console.log("error: ", err);
+      }
+    );
+  };
+
   handleRemove = (data) => {
     axios.delete(`http://localhost:3004/posts/${data}`).then(this.getPostApi); //Untuk merefresh list item
   };
@@ -32,14 +43,15 @@ class BlogPost extends Component {
     let timestamp = new Date().getTime();
     formBlogPostNew["id"] = timestamp;
     formBlogPostNew[event.target.name] = event.target.value;
-    this.setState(
-      {
-        formBlogPost: formBlogPostNew,
-      },
-      () => {
-        console.log("value obj formBlogPost", this.state.formBlogPost);
-      }
-    );
+    this.setState({
+      formBlogPost: formBlogPostNew,
+    });
+  };
+
+  handleSubmit = () => {
+    // console.log(this.state.formBlogPost);
+    this.postDataToAPI();
+    this.getPostApi();
   };
 
   componentDidMount() {
@@ -76,7 +88,9 @@ class BlogPost extends Component {
             placeholder="add blog content"
             onChange={this.handleFormChange}
           ></textarea>
-          <button className="btn-submit">Simpan</button>
+          <button className="btn-submit" onClick={this.handleSubmit}>
+            Simpan
+          </button>
         </div>
 
         {this.state.post.map((post) => {
