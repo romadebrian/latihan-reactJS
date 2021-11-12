@@ -15,11 +15,13 @@ class BlogPost extends Component {
   };
 
   getPostApi = () => {
-    axios.get("http://localhost:3004/posts").then((result) => {
-      this.setState({
-        post: result.data,
+    axios
+      .get("http://localhost:3004/posts?_sort=id&_order=dsc")
+      .then((result) => {
+        this.setState({
+          post: result.data,
+        });
       });
-    });
   };
 
   postDataToAPI = () => {
