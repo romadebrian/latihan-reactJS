@@ -16,7 +16,7 @@ class BlogPost extends Component {
 
   getPostApi = () => {
     axios
-      .get("http://localhost:3004/posts?_sort=id&_order=dsc")
+      .get("http://localhost:3004/posts?_sort=id&_order=desc")
       .then((result) => {
         this.setState({
           post: result.data,
