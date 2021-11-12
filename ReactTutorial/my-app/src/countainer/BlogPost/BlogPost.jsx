@@ -40,6 +40,10 @@ class BlogPost extends Component {
     axios.delete(`http://localhost:3004/posts/${data}`).then(this.getPostApi); //Untuk merefresh list item
   };
 
+  handleUpdate = (data) => {
+    console.log(data);
+  };
+
   handleFormChange = (event) => {
     // console.log("Form Change", event.target);
     let formBlogPostNew = { ...this.state.formBlogPost };
@@ -96,7 +100,14 @@ class BlogPost extends Component {
         </div>
 
         {this.state.post.map((post) => {
-          return <Post key={post.id} data={post} remove={this.handleRemove} />;
+          return (
+            <Post
+              key={post.id}
+              data={post}
+              remove={this.handleRemove}
+              update={this.handleUpdate}
+            />
+          );
         })}
       </Fragment>
     );

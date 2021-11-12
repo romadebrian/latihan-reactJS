@@ -47,17 +47,26 @@
 }
 
 .remove {
-  padding: 12px 18;
+  padding: 12px 18px;
   background: #e03939;
   color: white;
   border-radius: 4px;
   outline: none;
   margin-top: 18px;
-  height: 35px;
 }
 
 .remove:hover {
   cursor: pointer;
+}
+
+button.update {
+  padding: 12px 18px;
+  background: #8bc34a;
+  color: white;
+  border-radius: 4px;
+  outline: none;
+  margin-top: 18px;
+  margin-right: 10px;
 }
 
 .form-add-post {
