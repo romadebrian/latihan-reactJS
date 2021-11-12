@@ -12,6 +12,7 @@ class BlogPost extends Component {
       body: "",
       userId: 1,
     },
+    isUpdate: false,
   };
 
   getPostApi = () => {
@@ -36,12 +37,27 @@ class BlogPost extends Component {
     );
   };
 
+  putDataToAPI = () => {
+    axios
+      .put(
+        `http://localhost:3004/posts/${this.state.formBlogPost.id}`,
+        this.state.formBlogPost
+      )
+      .then((res) => {
+        console.log();
+      });
+  };
+
   handleRemove = (data) => {
     axios.delete(`http://localhost:3004/posts/${data}`).then(this.getPostApi); //Untuk merefresh list item
   };
 
   handleUpdate = (data) => {
     console.log(data);
+    this.setState({
+      formBlogPost: data,
+      isUpdate: true,
+    });
   };
 
   handleFormChange = (event) => {
@@ -57,7 +73,11 @@ class BlogPost extends Component {
 
   handleSubmit = () => {
     // console.log(this.state.formBlogPost);
-    this.postDataToAPI();
+    if (this.state.isUpdate) {
+      this.putDataToAPI();
+    } else {
+      this.postDataToAPI();
+    }
   };
 
   componentDidMount() {
@@ -83,6 +103,7 @@ class BlogPost extends Component {
             type="text"
             name="title"
             placeholder="add title"
+            value={this.state.formBlogPost.title}
             onChange={this.handleFormChange}
           />
           <label htmlFor="body">Blog Content</label>
@@ -91,6 +112,7 @@ class BlogPost extends Component {
             id="body"
             cols="30"
             rows="10"
+            value={this.state.formBlogPost.body}
             placeholder="add blog content"
             onChange={this.handleFormChange}
           ></textarea>
