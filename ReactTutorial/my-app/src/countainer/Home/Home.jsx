@@ -4,6 +4,7 @@ import BlogPost from "../BlogPost/BlogPost";
 import LifeCycleComp from "../LifeCycleComp/LifeCycleComp";
 // import YoutubeComp from "../../component/YoutubeComp/YoutubeComp";
 import Product from "../Product/Product";
+import "./Home.css";
 
 class Home extends Component {
   state = {
@@ -44,22 +45,14 @@ class Home extends Component {
         />
         <YoutubeComp />
 
-        <p> Product </p>
-        <hr />
-        <Product />
-
         <p>LifeCycleComponents</p>
         <hr />
         {this.state.showComponent ? <LifeCycleComp /> : null} 
           if else
-
-          <p>Blog Post</p>
-          <hr />
-          <BlogPost />
         </div> */}
 
         <Fragment>
-          <div>
+          <div className="navigation">
             <Link to="/">Blog Post</Link>
             <Link to="/product">Product</Link>
             <Link to="/lifecycle">LifeCycle</Link>
