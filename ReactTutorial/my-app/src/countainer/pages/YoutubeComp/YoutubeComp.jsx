@@ -1,9 +1,9 @@
-import React, { Component } from "react"; //rcc
+import React, { Component, Fragment } from "react"; //rcc
 
 class YoutubeComp extends Component {
   render() {
     return (
-      <div>
+      <Fragment>
         <p> Youtube Component </p>
         <hr />
         <YoutubeComp
@@ -31,7 +31,7 @@ class YoutubeComp extends Component {
         <hr />
         {this.state.showComponent ? <LifeCycleComp /> : null}
         if else
-      </div>
+      </Fragment>
     );
   }
 }
