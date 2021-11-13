@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from "react"; // rcc
 import { BrowserRouter, Route, Link } from "react-router-dom";
-import BlogPost from "../BlogPost/BlogPost";
+import BlogPost from "../pages/BlogPost/BlogPost";
 import LifeCycleComp from "../pages/LifeCycleComp/LifeCycleComp";
 // import YoutubeComp from "../../component/YoutubeComp/YoutubeComp";
-import Product from "../Product/Product";
+import Product from "../pages/Product/Product";
 import "./Home.css";
 
 class Home extends Component {
@@ -22,34 +22,7 @@ class Home extends Component {
   render() {
     return (
       <BrowserRouter>
-        {/* <div>
-          <YoutubeComp
-          time="7.12"
-          title="Tutorial ReactJs - Bagian 1"
-          desc="2x ditonton, 2 hari yang lalu"
-        />
-        <YoutubeComp
-          time="8.02"
-          title="Tutorial ReactJs - Bagian 2"
-          desc="200x ditonton, 10 hari yang lalu"
-        />
-        <YoutubeComp
-          time="7.12"
-          title="Tutorial ReactJs - Bagian 3"
-          desc="500x ditonton, 4 hari yang lalu"
-        />
-        <YoutubeComp
-          time="5.04"
-          title="Tutorial ReactJs - Bagian 4"
-          desc="1k ditonton, 14 hari yang lalu"
-        />
-        <YoutubeComp />
-
-        <p>LifeCycleComponents</p>
-        <hr />
-        {this.state.showComponent ? <LifeCycleComp /> : null} 
-          if else
-        </div> */}
+        
 
         <Fragment>
           <div className="navigation">
