@@ -1,8 +1,9 @@
-import React, { Component } from "react"; // rcc
+import React, { Component, Fragment } from "react"; // rcc
+import { BrowserRouter, Route, Link } from "react-router-dom";
 import BlogPost from "../BlogPost/BlogPost";
-// import LifeCycleComp from "../LifeCycleComp/LifeCycleComp";
+import LifeCycleComp from "../LifeCycleComp/LifeCycleComp";
 // import YoutubeComp from "../../component/YoutubeComp/YoutubeComp";
-// import Product from "../Product/Product";
+import Product from "../Product/Product";
 
 class Home extends Component {
   state = {
@@ -19,8 +20,9 @@ class Home extends Component {
 
   render() {
     return (
-      <div>
-        {/* <YoutubeComp
+      <BrowserRouter>
+        {/* <div>
+          <YoutubeComp
           time="7.12"
           title="Tutorial ReactJs - Bagian 1"
           desc="2x ditonton, 2 hari yang lalu"
@@ -40,21 +42,28 @@ class Home extends Component {
           title="Tutorial ReactJs - Bagian 4"
           desc="1k ditonton, 14 hari yang lalu"
         />
-        <YoutubeComp /> */}
+        <YoutubeComp />
 
-        {/* <p> Product </p>
+          <p> Product </p>
         <hr />
-        <Product /> */}
+        <Product />
 
-        {/* <p>LifeCycleComponents</p>
+          <p>LifeCycleComponents</p>
         <hr />
-        {this.state.showComponent ? <LifeCycleComp /> : null}  */}
-        {/*if else */}
+        {this.state.showComponent ? <LifeCycleComp /> : null} 
+          if else
 
-        <p>Blog Post</p>
-        <hr />
-        <BlogPost />
-      </div>
+          <p>Blog Post</p>
+          <hr />
+          <BlogPost />
+        </div> */}
+
+        <Fragment>
+          <Route path="/" exact component={BlogPost} />
+          <Route path="/product" component={Product} />
+          <Route path="/lifecycle" component={LifeCycleComp} />
+        </Fragment>
+      </BrowserRouter>
     );
   }
 }
