@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react"; //rcc
+import YoutubeComp from "../../../component/YoutubeComp/YoutubeComp";
 
-class YoutubeComp extends Component {
+class YoutubeCompPage extends Component {
   render() {
     return (
       <Fragment>
@@ -27,12 +28,8 @@ class YoutubeComp extends Component {
           desc="1k ditonton, 14 hari yang lalu"
         />
         <YoutubeComp />
-        <p>LifeCycleComponents</p>
-        <hr />
-        {this.state.showComponent ? <LifeCycleComp /> : null}
-        if else
       </Fragment>
     );
   }
 }
-export default YoutubeComp;
+export default YoutubeCompPage;
