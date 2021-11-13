@@ -117,6 +117,8 @@ class BlogPost extends Component {
   render() {
     return (
       <Fragment>
+        <p> BlogPost Page </p>
+        <hr />
         <h2 className="section-title">Blog Post</h2>
 
         <div className="form-add-post">

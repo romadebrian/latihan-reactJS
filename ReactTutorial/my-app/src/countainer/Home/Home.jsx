@@ -44,11 +44,11 @@ class Home extends Component {
         />
         <YoutubeComp />
 
-          <p> Product </p>
+        <p> Product </p>
         <hr />
         <Product />
 
-          <p>LifeCycleComponents</p>
+        <p>LifeCycleComponents</p>
         <hr />
         {this.state.showComponent ? <LifeCycleComp /> : null} 
           if else
