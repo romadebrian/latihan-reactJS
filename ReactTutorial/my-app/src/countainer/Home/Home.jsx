@@ -59,6 +59,11 @@ class Home extends Component {
         </div> */}
 
         <Fragment>
+          <div>
+            <Link to="/">Blog Post</Link>
+            <Link to="/product">Product</Link>
+            <Link to="/lifecycle">LifeCycle</Link>
+          </div>
           <Route path="/" exact component={BlogPost} />
           <Route path="/product" component={Product} />
           <Route path="/lifecycle" component={LifeCycleComp} />
