@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react"; // rcc
 import { BrowserRouter, Route, Link } from "react-router-dom";
 import BlogPost from "../BlogPost/BlogPost";
-import LifeCycleComp from "../LifeCycleComp/LifeCycleComp";
+import LifeCycleComp from "../pages/LifeCycleComp/LifeCycleComp";
 // import YoutubeComp from "../../component/YoutubeComp/YoutubeComp";
 import Product from "../Product/Product";
 import "./Home.css";
