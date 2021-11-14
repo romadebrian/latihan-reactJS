@@ -7,7 +7,7 @@ class Product extends Component {
     order: 4,
   };
 
-  ngeHandlePerubahanJumblah = (newvalue) => {
+  handleCounterChange = (newvalue) => {
     this.setState({
       order: newvalue,
     });
@@ -33,9 +33,7 @@ class Product extends Component {
           </div>
         </div>
         <CardProduct
-          KetikaJumblahBerubah={(value) =>
-            this.ngeHandlePerubahanJumblah(value)
-          }
+          onCounterChange={(value) => this.handleCounterChange(value)}
         />
       </Fragment>
     );

@@ -1,34 +1,8 @@
 import React, { Component } from "react";
 import "../Product.css";
+import Counter from "./Counter";
 
 class CardProduct extends Component {
-  state = {
-    order: 4,
-  };
-
-  ngeHandlePerubahanNilai = (newValue) => {
-    this.props.KetikaJumblahBerubah(newValue); // "This" untuk statefull component yang menggunakan class, beda dengan "const"
-  };
-
-  handlerPlus = () => {
-    this.setState(
-      {
-        order: this.state.order + 1,
-      },
-      () => {
-        this.ngeHandlePerubahanNilai(this.state.order);
-      }
-    );
-  };
-
-  handlerMinus = () => {
-    if (this.state.order > 0) {
-      this.setState({
-        order: this.state.order - 1,
-      });
-    }
-  };
-
   render() {
     return (
       <div className="card">
@@ -37,15 +11,9 @@ class CardProduct extends Component {
         </div>
         <p className="product-title">Daging Ayam</p>
         <p className="product-price">Rp 400.000</p>
-        <div className="counter">
-          <button className="minus" onClick={this.handlerMinus}>
-            -
-          </button>
-          <input type="text" value={this.state.order} />
-          <button className="plus" onClick={this.handlerPlus}>
-            +
-          </button>
-        </div>
+        <Counter
+          onCounterChange={(value) => this.props.onCounterChange(value)}
+        />
       </div>
     );
   }
