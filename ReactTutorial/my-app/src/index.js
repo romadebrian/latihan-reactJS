@@ -1,18 +1,31 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-// import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-
+import Home from "./countainer/Home/Home";
+// import App from "./App";
 // import HelloComponents from "./component/HelloComponent";
 // import StateFullComponents from "./countainer/StateFullComponent";
 // import YoutubeComp from "./component/YoutubeComp/YoutubeComp";
-import Home from "./countainer/Home/Home";
+import { createStore } from "redux";
+import { Provider } from "react-redux";
+
+const globalState = {
+  totalOrder: 0,
+};
+
+// Reducer
+const rootReducer = (state = globalState, action) => {
+  return state;
+};
+
+// Store
+const store = createStore(rootReducer);
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider>
     <Home />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById("root")
 );
 

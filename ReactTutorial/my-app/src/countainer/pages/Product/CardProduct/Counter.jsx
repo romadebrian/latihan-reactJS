@@ -1,4 +1,5 @@
 import React, { Component } from "react"; //rcc
+import { connect } from "react-redux";
 
 class Counter extends Component {
   state = {
@@ -44,4 +45,10 @@ class Counter extends Component {
   }
 }
 
-export default Counter;
+const mapStateToProps = (state) => {
+  return {
+    order: state.totalOrder,
+  };
+};
+
+export default connect(mapStateToProps)(Counter);
