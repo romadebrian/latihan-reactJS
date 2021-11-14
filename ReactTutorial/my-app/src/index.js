@@ -20,10 +20,10 @@ const rootReducer = (state = globalState, action) => {
 };
 
 // Store
-const store = createStore(rootReducer);
+const storeRedux = createStore(rootReducer);
 
 ReactDOM.render(
-  <Provider>
+  <Provider store={storeRedux}>
     <Home />
   </Provider>,
   document.getElementById("root")

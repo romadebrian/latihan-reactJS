@@ -31,6 +31,7 @@ class Counter extends Component {
   };
 
   render() {
+    console.log(this.props);
     return (
       <div className="counter">
         <button className="minus" onClick={this.handlerMinus}>
