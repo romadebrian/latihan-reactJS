@@ -4,15 +4,15 @@ import "./Product.css";
 import { connect } from "react-redux";
 
 class Product extends Component {
-  state = {
-    order: 4,
-  };
+  // state = {
+  //   order: 4,
+  // };
 
-  handleCounterChange = (newvalue) => {
-    this.setState({
-      order: newvalue,
-    });
-  };
+  // handleCounterChange = (newvalue) => {
+  //   this.setState({
+  //     order: newvalue,
+  //   });
+  // };
 
   render() {
     return (
@@ -30,12 +30,13 @@ class Product extends Component {
           </div>
           <div className="troley">
             <img src="img/pack.png" alt="ImgTroli" />
-            <div className="count">{this.state.order}</div>
+            <div className="count">{this.props.order}</div>
           </div>
         </div>
-        <CardProduct
+        <CardProduct />
+        {/* <CardProduct
           onCounterChange={(value) => this.handleCounterChange(value)}
-        />
+        /> */}
       </Fragment>
     );
   }
