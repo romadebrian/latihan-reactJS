@@ -2,10 +2,10 @@ import React, { Component } from "react"; //rcc
 import { connect } from "react-redux";
 
 class Counter extends Component {
-  state = {
-    order: 4,
-    name: "Prawito",
-  };
+  //   state = {
+  //     order: 4,
+  //     name: "Prawito",
+  //   };
 
   handleCounterchange = (newValue) => {
     this.props.onCounterChange(newValue); // "This" untuk statefull component yang menggunakan class, beda dengan "const"
@@ -37,7 +37,7 @@ class Counter extends Component {
         <button className="minus" onClick={this.handlerMinus}>
           -
         </button>
-        <input type="text" value={this.state.order} />
+        <input type="text" value={this.props.order} />
         <button className="plus" onClick={this.handlerPlus}>
           +
         </button>
