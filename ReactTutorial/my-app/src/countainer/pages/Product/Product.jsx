@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import CardProduct from "./CardProduct/CardProduct";
 import "./Product.css";
-import { connect } from "react-redux";
+// import { connect } from "react-redux";
 
 class Product extends Component {
   // state = {
@@ -34,6 +34,7 @@ class Product extends Component {
           </div>
         </div>
         <CardProduct />
+
         {/* <CardProduct
           onCounterChange={(value) => this.handleCounterChange(value)}
         /> */}
@@ -42,11 +43,11 @@ class Product extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    order: state.totalOrder,
-  };
-};
+// const mapStateToProps = (state) => {
+//   return {
+//     order: state.totalOrder,
+//   };
+// };
 
 // export default connect(mapStateToProps)(Product);
 export default Product;
