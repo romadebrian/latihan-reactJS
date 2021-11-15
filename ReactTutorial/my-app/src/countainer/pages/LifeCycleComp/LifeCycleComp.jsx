@@ -69,7 +69,7 @@ class LifeCycleComp extends Component {
         </button>
         <hr />
 
-        <p>Total Order: {this.props.order}</p>
+        <p>Total Order: {0}</p>
       </Fragment>
     );
   }
@@ -81,4 +81,5 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(LifeCycleComp);
+// export default connect(mapStateToProps)(LifeCycleComp);
+export default LifeCycleComp;
