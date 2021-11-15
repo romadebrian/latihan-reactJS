@@ -13,7 +13,7 @@ import YoutubeCompPage from "../pages/YoutubeCompPage/YoutubeCompPage";
 import "./Home.css";
 
 // const Provider = createContext.Provider;
-const RootContext = createContext();
+export const RootContext = createContext();
 const Provider = RootContext.Provider;
 
 class Home extends Component {
@@ -29,14 +29,32 @@ class Home extends Component {
     // }, 10000);
   }
 
-  render() {
-    state = {
-      totalOrder: 0,
-    };
+  state = {
+    totalOrder: 55,
+  };
 
+  dispatch = (action) => {
+    if (action.type === "PLUS_ORDER") {
+      return this.setState({
+        totalOrder: this.state.totalOrder + 1,
+      });
+    }
+    if (action.type === "MINUS_ORDER") {
+      return this.setState({
+        totalOrder: this.state.totalOrder - 1,
+      });
+    }
+  };
+
+  render() {
     return (
       <Router>
-        <Provider value={this.state}>
+        <Provider
+          value={{
+            state: this.state,
+            dispatch: this.dispatch,
+          }}
+        >
           <Fragment>
             <div className="navigation">
               <Link to="/">Blog Post</Link>

@@ -1,6 +1,7 @@
 import React, { Component } from "react"; //rcc
-import { connect } from "react-redux";
-import ActionType from "../../../../redux/reducer/globalActionType";
+// import { connect } from "react-redux";
+// import ActionType from "../../../../redux/reducer/globalActionType";
+import { RootContext } from "../../../Home/Home";
 
 class Counter extends Component {
   //   state = {
@@ -32,33 +33,40 @@ class Counter extends Component {
   //   };
 
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     return (
-      <div className="counter">
-        <button className="minus" onClick={() => null}>
-          -
-        </button>
-        <input type="text" value={0} />
-        <button className="plus" onClick={() => null}>
-          +
-        </button>
-      </div>
+      <RootContext.Consumer>
+        {(value) => {
+          console.log("value: ", value);
+          return (
+            <div className="counter">
+              <button className="minus" onClick={() => value.dispatch({type: 'MINUS_ORDER'})}>
+                -
+              </button>
+              <input type="text" value={value.state.totalOrder} />
+              <button className="plus" onClick={() => value.dispatch({type: 'PLUS_ORDER'})}>
+                +
+              </button>
+            </div>
+          );
+        }}
+      </RootContext.Consumer>
     );
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    order: state.totalOrder,
-  };
-};
+// const mapStateToProps = (state) => {
+//   return {
+//     order: state.totalOrder,
+//   };
+// };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    handlerPlus: () => dispatch({ type: ActionType.PLUS_ORDER }),
-    handlerMinus: () => dispatch({ type: ActionType.MINUS_ORDER }),
-  };
-};
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     handlerPlus: () => dispatch({ type: ActionType.PLUS_ORDER }),
+//     handlerMinus: () => dispatch({ type: ActionType.MINUS_ORDER }),
+//   };
+// };
 
 // export default connect(mapStateToProps, mapDispatchToProps)(Counter);
 export default Counter;

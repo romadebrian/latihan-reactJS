@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
 import "./LifeCycleComp.css";
-import { connect } from "react-redux";
+// import { connect } from "react-redux";
 
 class LifeCycleComp extends Component {
   // sering digunakkan
@@ -75,11 +75,11 @@ class LifeCycleComp extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    order: state.totalOrder,
-  };
-};
+// const mapStateToProps = (state) => {
+//   return {
+//     order: state.totalOrder,
+//   };
+// };
 
 // export default connect(mapStateToProps)(LifeCycleComp);
 export default LifeCycleComp;
