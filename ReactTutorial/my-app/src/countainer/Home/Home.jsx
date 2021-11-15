@@ -1,5 +1,5 @@
 //Libraries
-import React, { Component, Fragment } from "react"; // rcc
+import React, { Component, Fragment, createContext } from "react"; // rcc
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 //Pages
@@ -11,6 +11,10 @@ import YoutubeCompPage from "../pages/YoutubeCompPage/YoutubeCompPage";
 
 //Style
 import "./Home.css";
+
+// const Provider = createContext.Provider;
+const RootContext = createContext();
+const Provider = RootContext.Provider;
 
 class Home extends Component {
   state = {
@@ -26,22 +30,28 @@ class Home extends Component {
   }
 
   render() {
+    state = {
+      totalOrder: 0,
+    };
+
     return (
       <Router>
-        <Fragment>
-          <div className="navigation">
-            <Link to="/">Blog Post</Link>
-            <Link to="/product">Product</Link>
-            <Link to="/lifecycle">LifeCycle</Link>
-            <Link to="/youtube-component">Youtube</Link>
-          </div>
+        <Provider value={this.state}>
+          <Fragment>
+            <div className="navigation">
+              <Link to="/">Blog Post</Link>
+              <Link to="/product">Product</Link>
+              <Link to="/lifecycle">LifeCycle</Link>
+              <Link to="/youtube-component">Youtube</Link>
+            </div>
 
-          <Route path="/" exact component={BlogPost} />
-          <Route path="/detail-post/:PostId" component={DetailPost} />
-          <Route path="/product" component={Product} />
-          <Route path="/lifecycle" component={LifeCycleComp} />
-          <Route path="/youtube-component" component={YoutubeCompPage} />
-        </Fragment>
+            <Route path="/" exact component={BlogPost} />
+            <Route path="/detail-post/:PostId" component={DetailPost} />
+            <Route path="/product" component={Product} />
+            <Route path="/lifecycle" component={LifeCycleComp} />
+            <Route path="/youtube-component" component={YoutubeCompPage} />
+          </Fragment>
+        </Provider>
       </Router>
     );
   }
