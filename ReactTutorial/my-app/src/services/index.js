@@ -10,7 +10,7 @@ const postNewsBlog = (data) => Post(`posts`, false, data);
 const updateNewsBlog = (data, id) => Put(`posts/${id}`, false, data);
 
 // Delete
-const deleteNewsBlog = (id) => Delete(`posts/${id}`, false, data);
+const deleteNewsBlog = (id) => Delete(`posts/${id}`, false);
 
 // GET
 const getNewsBlog = () => Get("posts?_sort=id&_order=desc", false);

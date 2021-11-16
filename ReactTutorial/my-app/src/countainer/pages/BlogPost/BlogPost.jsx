@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react"; //rcc
 import Post from "../../../component/Post/Post";
 import "./BlogPost.css";
-import axios from "axios";
+// import axios from "axios";
 import API from "../../../services";
 
 class BlogPost extends Component {
@@ -64,9 +64,12 @@ class BlogPost extends Component {
       });
     });
   };
+
   // Delete data from database
   handleRemove = (data) => {
-    axios.delete(`http://localhost:3004/posts/${data}`).then(this.getPostApi);
+    API.deleteNewsBlog(data).then((res) => {
+      this.getPostApi();
+    });
   };
 
   handleUpdate = (data) => {
