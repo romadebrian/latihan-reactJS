@@ -33,24 +33,18 @@ class BlogPost extends Component {
 
   // Imput Data To Database
   postDataToAPI = () => {
-    axios.post("http://localhost:3004/posts", this.state.formBlogPost).then(
-      (res) => {
-        console.log(res);
-        this.getPostApi();
-        this.setState({
-          isUpdate: false,
-          formBlogPost: {
-            id: 1,
-            title: "",
-            body: "",
-            userId: 1,
-          },
-        });
-      },
-      (err) => {
-        console.log("error: ", err);
-      }
-    );
+    API.postNewsBlog(this.state.formBlogPost).then((res) => {
+      this.getPostApi();
+      this.setState({
+        isUpdate: false,
+        formBlogPost: {
+          id: 1,
+          title: "",
+          body: "",
+          userId: 1,
+        },
+      });
+    });
   };
   // Update Data in Database
   putDataToAPI = () => {
