@@ -66,7 +66,7 @@ class BlogPost extends Component {
   };
   // Delete data from database
   handleRemove = (data) => {
-    axios.delete(`http://localhost:3004/posts/${data}`).then(this.getPostApi); //Untuk merefresh list item
+    axios.delete(`http://localhost:3004/posts/${data}`).then(this.getPostApi);
   };
 
   handleUpdate = (data) => {
