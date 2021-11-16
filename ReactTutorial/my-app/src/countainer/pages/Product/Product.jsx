@@ -1,8 +1,9 @@
 import React, { Component, Fragment } from "react";
+import { GlobalCosumer } from "../../../context/context";
 import CardProduct from "./CardProduct/CardProduct";
 import "./Product.css";
 // import { connect } from "react-redux";
-import { RootContext } from "../../Home/Home";
+// import { RootContext } from "../../Home/Home";
 
 class Product extends Component {
   // state = {
@@ -17,35 +18,29 @@ class Product extends Component {
 
   render() {
     return (
-      <RootContext.Consumer>
-        {(value) => {
-          return (
-            <Fragment>
-              <p> Product Page </p>
-              <hr />
-              <div className="header">
-                <div className="logo">
-                  <img
-                    src="img/original.png"
-                    alt="HeaderLogo"
-                    width="100"
-                    height="40"
-                  />
-                </div>
-                <div className="troley">
-                  <img src="img/pack.png" alt="ImgTroli" />
-                  <div className="count">{value.state.totalOrder}</div>
-                </div>
-              </div>
-              <CardProduct />
+      <Fragment>
+        <p> Product Page </p>
+        <hr />
+        <div className="header">
+          <div className="logo">
+            <img
+              src="img/original.png"
+              alt="HeaderLogo"
+              width="100"
+              height="40"
+            />
+          </div>
+          <div className="troley">
+            <img src="img/pack.png" alt="ImgTroli" />
+            <div className="count">{this.props.state.totalOrder}</div>
+          </div>
+        </div>
+        <CardProduct />
 
-              {/* <CardProduct
+        {/* <CardProduct
                 onCounterChange={(value) => this.handleCounterChange(value)}
               /> */}
-            </Fragment>
-          );
-        }}
-      </RootContext.Consumer>
+      </Fragment>
     );
   }
 }
@@ -57,4 +52,4 @@ class Product extends Component {
 // };
 
 // export default connect(mapStateToProps)(Product);
-export default Product;
+export default GlobalCosumer(Product);

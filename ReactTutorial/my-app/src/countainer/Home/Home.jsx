@@ -1,6 +1,7 @@
 //Libraries
-import React, { Component, Fragment, createContext } from "react"; // rcc
+import React, { Component, Fragment } from "react"; // rcc
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import GlobalProvider from "../../context/context";
 
 //Pages
 import BlogPost from "../pages/BlogPost/BlogPost";
