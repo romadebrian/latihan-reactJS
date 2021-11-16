@@ -1,15 +1,34 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import "./Hooks.css";
 
-class Hooks extends Component {
-  render() {
-    return (
-      <div className="p-hooks">
-        <p>Nilai Saya saat ini adalah : 0</p>
-        <button>Update Nilai</button>
-      </div>
-    );
-  }
-}
+// class Hooks extends Component {
+//   state = {
+//     count: 0,
+//   };
+
+//   onUpdate = () => {
+//     this.setState({
+//       count: this.state.count + 1,
+//     });
+//   };
+//   render() {
+//     return (
+//       <div className="p-hooks">
+//         <p>Nilai Saya saat ini adalah : {this.state.count}</p>
+//         <button onClick={this.onUpdate}>Update Nilai</button>
+//       </div>
+//     );
+//   }
+// }
+
+const Hooks = () => {
+  const [count, setCount] = useState(0);
+  return (
+    <div className="p-hooks">
+      <p>Nilai Saya saat ini adalah : {count}</p>
+      <button onClick={() => setCount(count + 1)}>Update Nilai</button>
+    </div>
+  );
+};
 
 export default Hooks;
