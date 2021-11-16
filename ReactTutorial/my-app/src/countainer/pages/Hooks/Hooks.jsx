@@ -16,6 +16,10 @@ class Hooks extends Component {
     document.title = `Title Change: ${this.state.count}`;
   }
 
+  componentDidUpdate() {
+    document.title = `Title Change: ${this.state.count}`;
+  }
+
   render() {
     return (
       <div className="p-hooks">
