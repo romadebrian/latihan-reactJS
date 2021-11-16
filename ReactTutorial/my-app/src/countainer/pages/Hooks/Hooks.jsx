@@ -20,6 +20,10 @@ class Hooks extends Component {
     document.title = `Title Change: ${this.state.count}`;
   }
 
+  componentWillUnmount() {
+    document.title = "ReactJs Hello Wolrd";
+  }
+
   render() {
     return (
       <div className="p-hooks">
