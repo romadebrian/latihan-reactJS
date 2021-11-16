@@ -156,13 +156,15 @@ class BlogPost extends Component {
           </button>
         </div>
 
-        {this.state.comments.map((comment) => {
-          return (
-            <p>
-              {comment.name} - {comment.email}
-            </p>
-          );
-        })}
+        {/* {
+          this.state.comments.map((comment) => {
+            return (
+              <p>
+                {comment.name} - {comment.email}
+              </p>
+            );
+          })
+        } */}
 
         {this.state.post.map((post) => {
           return (
