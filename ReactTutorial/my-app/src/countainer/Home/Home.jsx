@@ -6,6 +6,7 @@ import GlobalProvider from "../../context/context";
 //Pages
 import BlogPost from "../pages/BlogPost/BlogPost";
 import DetailPost from "../pages/BlogPost/DetailPost/DetailPost";
+import Hooks from "../pages/Hooks/Hooks";
 import LifeCycleComp from "../pages/LifeCycleComp/LifeCycleComp";
 import Product from "../pages/Product/Product";
 import YoutubeCompPage from "../pages/YoutubeCompPage/YoutubeCompPage";
@@ -35,6 +36,7 @@ class Home extends Component {
             <Link to="/product">Product</Link>
             <Link to="/lifecycle">LifeCycle</Link>
             <Link to="/youtube-component">Youtube</Link>
+            <Link to="/hooks">Hooks</Link>
           </div>
 
           <Route path="/" exact component={BlogPost} />
@@ -42,6 +44,7 @@ class Home extends Component {
           <Route path="/product" component={Product} />
           <Route path="/lifecycle" component={LifeCycleComp} />
           <Route path="/youtube-component" component={YoutubeCompPage} />
+          <Route path="/hooks" component={Hooks} />
         </Fragment>
       </Router>
     );
