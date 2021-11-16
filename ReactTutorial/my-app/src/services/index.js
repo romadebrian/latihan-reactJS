@@ -6,7 +6,7 @@ import Put from "./Put";
 const postNewsBlog = (data) => Post(`posts`, false, data);
 
 // PUT
-const updateNewsBlog = (data, id) => Post(`posts/${id}`, false, data);
+const updateNewsBlog = (data, id) => Put(`posts/${id}`, false, data);
 
 // GET
 const getNewsBlog = () => Get("posts?_sort=id&_order=desc", false);
@@ -14,6 +14,7 @@ const getComments = () => Get("comments", true);
 
 const API = {
   postNewsBlog,
+  updateNewsBlog,
   getNewsBlog,
   getComments,
 };

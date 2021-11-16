@@ -48,24 +48,21 @@ class BlogPost extends Component {
   };
   // Update Data in Database
   putDataToAPI = () => {
-    axios
-      .put(
-        `http://localhost:3004/posts/${this.state.formBlogPost.id}`,
-        this.state.formBlogPost
-      )
-      .then((res) => {
-        console.log();
-        this.getPostApi();
-        this.setState({
-          isUpdate: false,
-          formBlogPost: {
-            id: 1,
-            title: "",
-            body: "",
-            userId: 1,
-          },
-        });
+    API.updateNewsBlog(
+      this.state.formBlogPost,
+      this.state.formBlogPost.id
+    ).then((res) => {
+      this.getPostApi();
+      this.setState({
+        isUpdate: false,
+        formBlogPost: {
+          id: 1,
+          title: "",
+          body: "",
+          userId: 1,
+        },
       });
+    });
   };
   // Delete data from database
   handleRemove = (data) => {
