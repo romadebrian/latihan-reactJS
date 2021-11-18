@@ -1,9 +1,10 @@
 import React, { Component } from "react";
+import "./Register.scss";
 
 class Register extends Component {
   render() {
     return (
-      <div>
+      <div className="auth-container">
         <div className="auth-card">
           <p className="auth-title">Page Register</p>
           <input className="input" placeholder="Email" type="text" />
