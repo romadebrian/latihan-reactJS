@@ -1,11 +1,7 @@
-// import firebase from "firebase/compat/app";
-// import "firebase/compat/auth";
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
 
-import { initializeApp } from "firebase/app";
-// import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-
-const firebaseConfig = {
-  // var firebaseConfig = {
+var firebaseConfig = {
   apiKey: "AIzaSyBl3ImJzmZ6ynszSa5ku6SlgmQpU11tIn4",
   authDomain: "simple-notes-firebase-a134f.firebaseapp.com",
   projectId: "simple-notes-firebase-a134f",
@@ -15,11 +11,6 @@ const firebaseConfig = {
   measurementId: "G-16HN3VD5PE",
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-// const analytics = getAnalytics(firebase);
+firebase.initializeApp(firebaseConfig);
 
-// firebase.initializeApp(firebaseConfig);
-
-// export default firebase;
-export default app;
+export default firebase;

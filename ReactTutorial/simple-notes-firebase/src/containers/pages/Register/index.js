@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./Register.scss";
 import firebase from "../../../config/firebase";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 class Register extends Component {
   state = {
@@ -19,38 +18,20 @@ class Register extends Component {
   handleRegisterSubmit = () => {
     const { email, password } = this.state;
     console.log("data before send: ", email, password);
-
-    const auth = getAuth();
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
+    firebase
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .then((res) => {
         // Signed in
-        const user = userCredential.user;
-        console.log("succes", userCredential);
+        var user = res.user;
+        console.log("succes", res);
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
+        var errorCode = error.code;
+        var errorMessage = error.message;
         console.log(errorCode, errorMessage);
       });
   };
-
-  // handleRegisterSubmit = () => {
-  //   const { email, password } = this.state;
-  //   console.log("data before send: ", email, password);
-  //   firebase
-  //     .auth()
-  //     .createUserWithEmailAndPassword(email, password)
-  //     .then((res) => {
-  //       // Signed in
-  //       var user = res.user;
-  //       console.log("succes", res);
-  //     })
-  //     .catch((error) => {
-  //       var errorCode = error.code;
-  //       var errorMessage = error.message;
-  //       console.log(errorCode, errorMessage);
-  //     });
-  // };
 
   render() {
     return (
