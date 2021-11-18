@@ -4,11 +4,13 @@ class Register extends Component {
   render() {
     return (
       <div>
-        <p>Page Register</p>
-        <input placeholder="Email" type="text" />
-        <input placeholder="Password" type="password" />
-        <button>Register</button>
-        <button>Go to Dashboard</button>
+        <div className="auth-card">
+          <p className="auth-title">Page Register</p>
+          <input className="input" placeholder="Email" type="text" />
+          <input className="input" placeholder="Password" type="password" />
+          <button className="btn">Register</button>
+        </div>
+        {/* <button>Go to Dashboard</button> */}
       </div>
     );
   }
