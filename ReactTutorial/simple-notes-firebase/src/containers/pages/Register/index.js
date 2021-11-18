@@ -5,6 +5,8 @@ class Register extends Component {
     return (
       <div>
         <p>Page Register</p>
+        <button>Go to Register</button>
+        <button>Go to Dashboard</button>
       </div>
     );
   }
