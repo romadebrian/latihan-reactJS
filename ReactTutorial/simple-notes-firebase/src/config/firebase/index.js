@@ -1,13 +1,11 @@
-// Import the functions you need from the SDKs you need
+// import firebase from "firebase/compat/app";
+// import "firebase/compat/auth";
+
 import { initializeApp } from "firebase/app";
-// import { getAnalytics } from "firebase/analytics";
+// import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
+  // var firebaseConfig = {
   apiKey: "AIzaSyBl3ImJzmZ6ynszSa5ku6SlgmQpU11tIn4",
   authDomain: "simple-notes-firebase-a134f.firebaseapp.com",
   projectId: "simple-notes-firebase-a134f",
@@ -18,7 +16,10 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const firebase = initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 // const analytics = getAnalytics(firebase);
 
-export default firebase;
+// firebase.initializeApp(firebaseConfig);
+
+// export default firebase;
+export default app;
