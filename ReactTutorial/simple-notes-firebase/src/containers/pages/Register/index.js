@@ -5,7 +5,9 @@ class Register extends Component {
     return (
       <div>
         <p>Page Register</p>
-        <button>Go to Register</button>
+        <input placeholder="Email" type="text" />
+        <input placeholder="Password" type="password" />
+        <button>Register</button>
         <button>Go to Dashboard</button>
       </div>
     );
