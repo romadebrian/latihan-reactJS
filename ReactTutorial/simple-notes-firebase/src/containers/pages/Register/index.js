@@ -20,20 +20,19 @@ class Register extends Component {
   handleRegisterSubmit = () => {
     const { email, password } = this.state;
     console.log("data before send: ", email, password);
-    setTimeout(() => {});
-    // firebase
-    //   .auth()
-    //   .createUserWithEmailAndPassword(email, password)
-    //   .then((res) => {
-    //     // Signed in
-    //     var user = res.user;
-    //     console.log("succes", res);
-    //   })
-    //   .catch((error) => {
-    //     var errorCode = error.code;
-    //     var errorMessage = error.message;
-    //     console.log(errorCode, errorMessage);
-    //   });
+    firebase
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .then((res) => {
+        // Signed in
+        var user = res.user;
+        console.log("succes", res);
+      })
+      .catch((error) => {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        console.log(errorCode, errorMessage);
+      });
   };
 
   render() {
@@ -55,14 +54,7 @@ class Register extends Component {
             type="password"
             onChange={this.handleChangeText}
           />
-          {/* <button className="btn" onClick={this.handleRegisterSubmit}>
-            Register
-          </button> */}
-          <Button
-            onClick={this.handleRegisterSubmit}
-            title="Register"
-            loading={this.state.isLoading}
-          />
+          <Button onClick={this.handleRegisterSubmit} title="Register" />
         </div>
         {/* <button>Go to Dashboard</button> */}
       </div>

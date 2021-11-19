@@ -1,7 +1,7 @@
 // rch
 import React from "react";
 
-const Button = (onClick, title, loading) => {
+const Button = ({ onClick, title, loading }) => {
   if (loading) {
     return <button className="btn disable">Loading...</button>;
   }
