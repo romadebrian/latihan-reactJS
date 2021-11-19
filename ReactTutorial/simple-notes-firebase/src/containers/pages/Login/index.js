@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { actionUserName } from "../../../config/redux/action";
 
 class Login extends Component {
   changeUser = () => {
@@ -15,12 +16,6 @@ class Login extends Component {
     );
   }
 }
-
-const actionUserName = () => (dispatch) => {
-  setTimeout(() => {
-    return dispatch({ type: "CHANGE_USER", value: "Prawito Hudoro" });
-  }, 2000);
-};
 
 const reduxState = (state) => ({
   popupProps: state.popup,
