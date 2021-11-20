@@ -1,17 +1,60 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { actionUserName } from "../../../config/redux/action";
+import Button from "../../../components/atoms/Button";
 
 class Login extends Component {
+  state = {
+    email: "",
+    password: "",
+    isLoading: false,
+  };
+
+  handleChangeText = (e) => {
+    this.setState({
+      [e.target.id]: e.target.value,
+    });
+  };
+
+  handleRegisterSubmit = () => {
+    const { email, password } = this.state;
+    this.props.registerAPI({ email, password });
+    this.setState({
+      email: "",
+      password: "",
+    });
+  };
+
   changeUser = () => {
     this.props.changeUserName();
   };
   render() {
     return (
-      <div>
-        <p>Login Page {this.props.userName}</p>
-        <button onClick={this.changeUser}>Go to Register</button>
-        <button>Go to Dashboard</button>
+      <div className="auth-container">
+        <div className="auth-card">
+          <p className="auth-title">Page Register</p>
+          <input
+            id="email"
+            className="input"
+            placeholder="Email"
+            type="text"
+            onChange={this.handleChangeText}
+            value={this.state.email}
+          />
+          <input
+            id="password"
+            className="input"
+            placeholder="Password"
+            type="password"
+            onChange={this.handleChangeText}
+            value={this.state.password}
+          />
+          <Button
+            onClick={this.handleRegisterSubmit}
+            title="Register"
+            loading={this.props.isLoading}
+          />
+        </div>
       </div>
     );
   }
