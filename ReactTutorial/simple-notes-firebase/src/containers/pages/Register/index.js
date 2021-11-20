@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import "./Register.scss";
-import firebase from "../../../config/firebase";
 import Button from "../../../components/atoms/Button";
+import { connect } from "react-redux";
+import { registerUserAPI } from "../../../config/redux/action";
 
 class Register extends Component {
   state = {
@@ -11,7 +12,6 @@ class Register extends Component {
   };
 
   handleChangeText = (e) => {
-    // console.log(e.target.id);
     this.setState({
       [e.target.id]: e.target.value,
     });
@@ -20,19 +20,7 @@ class Register extends Component {
   handleRegisterSubmit = () => {
     const { email, password } = this.state;
     console.log("data before send: ", email, password);
-    firebase
-      .auth()
-      .createUserWithEmailAndPassword(email, password)
-      .then((res) => {
-        // Signed in
-        var user = res.user;
-        console.log("succes", res);
-      })
-      .catch((error) => {
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        console.log(errorCode, errorMessage);
-      });
+    this.props.registerAPI({ email, password });
   };
 
   render() {
@@ -54,12 +42,23 @@ class Register extends Component {
             type="password"
             onChange={this.handleChangeText}
           />
-          <Button onClick={this.handleRegisterSubmit} title="Register" />
+          <Button
+            onClick={this.handleRegisterSubmit}
+            title="Register"
+            loading={this.props.isLoading}
+          />
         </div>
-        {/* <button>Go to Dashboard</button> */}
       </div>
     );
   }
 }
 
-export default Register;
+const ReduxState = (state) => ({
+  isLoading: state.isLoading,
+});
+
+const reduxDispatch = (dispatch) => ({
+  registerAPI: (data) => dispatch(registerUserAPI(data)),
+});
+
+export default connect(ReduxState, reduxDispatch)(Register);

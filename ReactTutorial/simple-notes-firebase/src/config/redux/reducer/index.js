@@ -27,7 +27,7 @@ const reducer = (state = initialState, action) => {
   if (action.type === "CHANGE_LOADING") {
     return {
       ...state,
-      user: action.value,
+      isLoading: action.value,
     };
   }
   return state;
