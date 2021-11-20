@@ -19,8 +19,11 @@ class Register extends Component {
 
   handleRegisterSubmit = () => {
     const { email, password } = this.state;
-    console.log("data before send: ", email, password);
     this.props.registerAPI({ email, password });
+    this.setState({
+      email: "",
+      password: "",
+    });
   };
 
   render() {
@@ -34,6 +37,7 @@ class Register extends Component {
             placeholder="Email"
             type="text"
             onChange={this.handleChangeText}
+            value={this.state.email}
           />
           <input
             id="password"
@@ -41,6 +45,7 @@ class Register extends Component {
             placeholder="Password"
             type="password"
             onChange={this.handleChangeText}
+            value={this.state.password}
           />
           <Button
             onClick={this.handleRegisterSubmit}
