@@ -7,22 +7,26 @@ export const actionUserName = () => (dispatch) => {
 };
 
 export const registerUserAPI = (data) => (dispatch) => {
-  dispatch({ type: "CHANGE_LOADING", value: true });
-  return firebase
-    .auth()
-    .createUserWithEmailAndPassword(data.email, data.password)
-    .then((res) => {
-      // Signed in
-      // var user = res.user;
-      console.log("succes", res);
-      dispatch({ type: "CHANGE_LOADING", value: false });
-    })
-    .catch((error) => {
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      console.log(errorCode, errorMessage);
-      dispatch({ type: "CHANGE_LOADING", value: false });
-    });
+  return new Promise((resolve, reject) => {
+    dispatch({ type: "CHANGE_LOADING", value: true });
+    firebase
+      .auth()
+      .createUserWithEmailAndPassword(data.email, data.password)
+      .then((res) => {
+        // Signed in
+        // var user = res.user;
+        console.log("succes", res);
+        dispatch({ type: "CHANGE_LOADING", value: false });
+        resolve(true);
+      })
+      .catch((error) => {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        console.log(errorCode, errorMessage);
+        dispatch({ type: "CHANGE_LOADING", value: false });
+        reject(false);
+      });
+  });
 };
 
 export const LoginUserAPI = (data) => (dispatch) => {

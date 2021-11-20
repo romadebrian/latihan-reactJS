@@ -17,13 +17,17 @@ class Register extends Component {
     });
   };
 
-  handleRegisterSubmit = () => {
+  handleRegisterSubmit = async () => {
     const { email, password } = this.state;
-    this.props.registerAPI({ email, password });
-    this.setState({
-      email: "",
-      password: "",
-    });
+    const res = await this.props
+      .registerAPI({ email, password })
+      .catch((err) => err);
+    if (res) {
+      this.setState({
+        email: "",
+        password: "",
+      });
+    }
   };
 
   render() {

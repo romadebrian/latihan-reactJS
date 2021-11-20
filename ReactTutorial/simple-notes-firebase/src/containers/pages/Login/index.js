@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import Button from "../../../components/atoms/Button";
 import { LoginUserAPI } from "../../../config/redux/action";
+import { withRouter } from "react-router-dom";
 
 class Login extends Component {
   state = {
@@ -18,15 +19,17 @@ class Login extends Component {
 
   handleLoginSubmit = async () => {
     const { email, password } = this.state;
+    const { history } = this.props;
     const res = await this.props
       .LoginAPI({ email, password })
       .catch((err) => err);
     if (res) {
       console.log("login success");
-      // this.setState({
-      //   email: "",
-      //   password: "",
-      // });
+      this.setState({
+        email: "",
+        password: "",
+      });
+      history.push("/dashboard");
     } else {
       console.log("login failed");
     }
@@ -75,4 +78,4 @@ const reduxDispatch = (dispatch) => ({
   LoginAPI: (data) => dispatch(LoginUserAPI(data)),
 });
 
-export default connect(ReduxState, reduxDispatch)(Login);
+export default connect(ReduxState, reduxDispatch)(withRouter(Login));
