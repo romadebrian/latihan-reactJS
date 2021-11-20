@@ -13,7 +13,7 @@ export const registerUserAPI = (data) => (dispatch) => {
     .createUserWithEmailAndPassword(data.email, data.password)
     .then((res) => {
       // Signed in
-      var user = res.user;
+      // var user = res.user;
       console.log("succes", res);
       dispatch({ type: "CHANGE_LOADING", value: false });
     })
@@ -26,20 +26,30 @@ export const registerUserAPI = (data) => (dispatch) => {
 };
 
 export const LoginUserAPI = (data) => (dispatch) => {
-  dispatch({ type: "CHANGE_LOADING", value: true });
-  return firebase
-    .auth()
-    .signInWithEmailAndPassword(data.email, data.password)
-    .then((res) => {
-      // Signed in
-      var user = res.user;
-      console.log("succes", res);
-      dispatch({ type: "CHANGE_LOADING", value: false });
-    })
-    .catch((error) => {
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      console.log(errorCode, errorMessage);
-      dispatch({ type: "CHANGE_LOADING", value: false });
-    });
+  return new Promise((resolve, reject) => {
+    dispatch({ type: "CHANGE_LOADING", value: true });
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(data.email, data.password)
+      .then((res) => {
+        // Login
+        console.log("succes", res);
+        const dataUser = {
+          email: res.user.email,
+          uid: res.user.uid,
+        };
+        dispatch({ type: "CHANGE_LOADING", value: false });
+        dispatch({ type: "CHANGE_ISLOGIN", value: true });
+        dispatch({ type: "CHANGE_USER", value: dataUser });
+        resolve(true);
+      })
+      .catch((error) => {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        console.log(errorCode, errorMessage);
+        dispatch({ type: "CHANGE_LOADING", value: false });
+        dispatch({ type: "CHANGE_ISLOGIN", value: false });
+        reject(false);
+      });
+  });
 };

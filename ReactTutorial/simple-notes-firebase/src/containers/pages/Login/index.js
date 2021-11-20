@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { actionUserName } from "../../../config/redux/action";
 import Button from "../../../components/atoms/Button";
+import { LoginUserAPI } from "../../../config/redux/action";
 
 class Login extends Component {
   state = {
@@ -16,13 +16,20 @@ class Login extends Component {
     });
   };
 
-  handleRegisterSubmit = () => {
+  handleLoginSubmit = async () => {
     const { email, password } = this.state;
-    this.props.registerAPI({ email, password });
-    this.setState({
-      email: "",
-      password: "",
-    });
+    const res = await this.props
+      .LoginAPI({ email, password })
+      .catch((err) => err);
+    if (res) {
+      console.log("login success");
+      // this.setState({
+      //   email: "",
+      //   password: "",
+      // });
+    } else {
+      console.log("login failed");
+    }
   };
 
   changeUser = () => {
@@ -32,7 +39,7 @@ class Login extends Component {
     return (
       <div className="auth-container">
         <div className="auth-card">
-          <p className="auth-title">Page Register</p>
+          <p className="auth-title">Page Login</p>
           <input
             id="email"
             className="input"
@@ -50,7 +57,7 @@ class Login extends Component {
             value={this.state.password}
           />
           <Button
-            onClick={this.handleRegisterSubmit}
+            onClick={this.handleLoginSubmit}
             title="Register"
             loading={this.props.isLoading}
           />
@@ -60,13 +67,12 @@ class Login extends Component {
   }
 }
 
-const reduxState = (state) => ({
-  popupProps: state.popup,
-  userName: state.user,
+const ReduxState = (state) => ({
+  isLoading: state.isLoading,
 });
 
 const reduxDispatch = (dispatch) => ({
-  changeUserName: () => dispatch(actionUserName()),
+  LoginAPI: (data) => dispatch(LoginUserAPI(data)),
 });
 
-export default connect(reduxState, reduxDispatch)(Login);
+export default connect(ReduxState, reduxDispatch)(Login);
