@@ -1,7 +1,8 @@
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
+import "firebase/compat/database";
 
-var firebaseConfig = {
+const firebaseConfig = {
   apiKey: "AIzaSyBl3ImJzmZ6ynszSa5ku6SlgmQpU11tIn4",
   authDomain: "simple-notes-firebase-a134f.firebaseapp.com",
   projectId: "simple-notes-firebase-a134f",
@@ -12,5 +13,7 @@ var firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
+
+export const database = firebase.database();
 
 export default firebase;
