@@ -12,13 +12,21 @@ class Dashboard extends Component {
 
   handleSaveNotes = () => {
     const { title, content } = this.state;
+    const { saveNotes } = this.props;
+
     const data = {
       title: title,
       content: content,
       data: new Date(),
     };
-
+    saveNotes(data);
     console.log(data);
+  };
+
+  onInputChange = (e, type) => {
+    this.setState({
+      [type]: e.target.value,
+    });
   };
 
   render() {
@@ -26,11 +34,17 @@ class Dashboard extends Component {
     return (
       <div className="container">
         <div className="input-form">
-          <input placeholder="title" className="input-title" value={title} />
+          <input
+            placeholder="title"
+            className="input-title"
+            value={title}
+            onChange={(e) => this.onInputChange(e, "title")}
+          />
           <textarea
             placeholder="content"
             className="input-content"
             value={content}
+            onChange={(e) => this.onInputChange(e, "content")}
           ></textarea>
           <button className="save-btn" onClick={this.handleSaveNotes}>
             simpan
