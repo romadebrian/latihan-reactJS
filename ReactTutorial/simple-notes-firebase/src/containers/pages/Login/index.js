@@ -24,12 +24,12 @@ class Login extends Component {
       .LoginAPI({ email, password })
       .catch((err) => err);
     if (res) {
-      console.log("login success");
+      console.log("login success", res);
       this.setState({
         email: "",
         password: "",
       });
-      history.push("/dashboard");
+      history.push("/");
     } else {
       console.log("login failed");
     }

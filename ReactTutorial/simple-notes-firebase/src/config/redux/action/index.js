@@ -37,15 +37,17 @@ export const LoginUserAPI = (data) => (dispatch) => {
       .signInWithEmailAndPassword(data.email, data.password)
       .then((res) => {
         // Login
-        console.log("succes", res);
+        // console.log("succes", res);
         const dataUser = {
           email: res.user.email,
           uid: res.user.uid,
+          emailVerified: res.user.emailVerified,
+          refreshToken: res.user.refreshToken,
         };
         dispatch({ type: "CHANGE_LOADING", value: false });
         dispatch({ type: "CHANGE_ISLOGIN", value: true });
         dispatch({ type: "CHANGE_USER", value: dataUser });
-        resolve(true);
+        resolve(dataUser);
       })
       .catch((error) => {
         var errorCode = error.code;
