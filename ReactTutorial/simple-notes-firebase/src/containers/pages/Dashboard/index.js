@@ -18,6 +18,7 @@ class Dashboard extends Component {
       title: title,
       content: content,
       data: new Date(),
+      userId: this.props.userData.uid,
     };
     saveNotes(data);
     console.log(data);
@@ -66,7 +67,7 @@ const reduxState = (state) => ({
 });
 
 const reduxDispatch = (dispatch) => ({
-  saveNotes: () => dispatch(addDataAPI()),
+  saveNotes: (data) => dispatch(addDataAPI(data)),
 });
 
 export default connect(reduxState, reduxDispatch)(Dashboard);
