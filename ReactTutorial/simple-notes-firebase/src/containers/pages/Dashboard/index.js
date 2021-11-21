@@ -17,7 +17,7 @@ class Dashboard extends Component {
     const data = {
       title: title,
       content: content,
-      data: new Date(),
+      date: new Date().getTime(),
       userId: this.props.userData.uid,
     };
     saveNotes(data);

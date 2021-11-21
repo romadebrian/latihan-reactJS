@@ -61,7 +61,7 @@ export const LoginUserAPI = (data) => (dispatch) => {
 };
 
 export const addDataAPI = (data) => (dispatch) => {
-  database.ref("notes/" + data.userId).set({
+  database.ref("notes/" + data.userId).push({
     title: data.title,
     content: data.content,
     date: data.date,
