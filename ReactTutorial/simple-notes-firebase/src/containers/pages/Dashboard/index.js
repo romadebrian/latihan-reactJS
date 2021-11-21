@@ -11,7 +11,14 @@ class Dashboard extends Component {
   };
 
   handleSaveNotes = () => {
-    alert("hai");
+    const { title, content } = this.state;
+    const data = {
+      title: title,
+      content: content,
+      data: new Date(),
+    };
+
+    console.log(data);
   };
 
   render() {
