@@ -61,8 +61,12 @@ class Dashboard extends Component {
   }
 }
 
+const reduxState = (state) => ({
+  userData: state.user,
+});
+
 const reduxDispatch = (dispatch) => ({
   saveNotes: () => dispatch(addDataAPI()),
 });
 
-export default connect(null, reduxDispatch)(Dashboard);
+export default connect(reduxState, reduxDispatch)(Dashboard);
