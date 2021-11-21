@@ -1,13 +1,33 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { addDataAPI } from "../../../config/redux/action";
+import "./Dashboard.scss";
 
 class Dashboard extends Component {
+  state = {
+    title: "",
+    content: "",
+    date: "",
+  };
+
+  handleSaveNotes = () => {
+    alert("hai");
+  };
+
   render() {
+    const { title, content, date } = this.state;
     return (
       <div className="container">
         <div className="input-form">
-          <input placeholder="title" className="input-title" />
-          <textarea placeholder="content" className="input-content"></textarea>
-          <button className="save-btn">simpan</button>
+          <input placeholder="title" className="input-title" value={title} />
+          <textarea
+            placeholder="content"
+            className="input-content"
+            value={content}
+          ></textarea>
+          <button className="save-btn" onClick={this.handleSaveNotes}>
+            simpan
+          </button>
         </div>
         <hr />
         <div className="card-content">
@@ -20,4 +40,8 @@ class Dashboard extends Component {
   }
 }
 
-export default Dashboard;
+const reduxDispatch = (dispatch) => ({
+  saveNotes: () => dispatch(addDataAPI()),
+});
+
+export default connect(null, reduxDispatch)(Dashboard);

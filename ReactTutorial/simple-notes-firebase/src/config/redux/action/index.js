@@ -1,4 +1,4 @@
-import firebase from "../../firebase";
+import firebase, { database } from "../../firebase";
 
 export const actionUserName = () => (dispatch) => {
   setTimeout(() => {
@@ -57,5 +57,13 @@ export const LoginUserAPI = (data) => (dispatch) => {
         dispatch({ type: "CHANGE_ISLOGIN", value: false });
         reject(false);
       });
+  });
+};
+
+export const addDataAPI = (data) => (dispatch) => {
+  database.ref("notes/" + data.userId).set({
+    title: data.title,
+    content: data.content,
+    date: data.date,
   });
 };
