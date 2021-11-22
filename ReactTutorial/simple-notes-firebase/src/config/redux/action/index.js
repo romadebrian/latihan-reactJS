@@ -67,3 +67,12 @@ export const addDataAPI = (data) => (dispatch) => {
     date: data.date,
   });
 };
+
+export const getDataFromAPI = (userId) => (dispatch) => {
+  const urlNotes = database.ref("notes/" + userId);
+  urlNotes.on("value", (snapshot) => {
+    const data = snapshot.val();
+    // updateStarCount(postElement, data);
+    console.log("get data: ", snapshot.val());
+  });
+};

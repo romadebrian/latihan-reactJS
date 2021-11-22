@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addDataAPI } from "../../../config/redux/action";
+import { addDataAPI, getDataFromAPI } from "../../../config/redux/action";
 import "./Dashboard.scss";
 
 class Dashboard extends Component {
@@ -10,15 +10,21 @@ class Dashboard extends Component {
     date: "",
   };
 
+  componentDidMount() {
+    const userData = JSON.parse(localStorage.getItem("userData"));
+    this.props.getNotes(userData.uid);
+  }
+
   handleSaveNotes = () => {
     const { title, content } = this.state;
     const { saveNotes } = this.props;
+    const userData = JSON.parse(localStorage.getItem("userData"));
 
     const data = {
       title: title,
       content: content,
       date: new Date().getTime(),
-      userId: this.props.userData.uid,
+      userId: userData.uid,
     };
     saveNotes(data);
     console.log(data);
@@ -68,6 +74,7 @@ const reduxState = (state) => ({
 
 const reduxDispatch = (dispatch) => ({
   saveNotes: (data) => dispatch(addDataAPI(data)),
+  getNotes: (data) => dispatch(getDataFromAPI(data)),
 });
 
 export default connect(reduxState, reduxDispatch)(Dashboard);
