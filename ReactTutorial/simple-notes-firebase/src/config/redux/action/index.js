@@ -70,9 +70,12 @@ export const addDataAPI = (data) => (dispatch) => {
 
 export const getDataFromAPI = (userId) => (dispatch) => {
   const urlNotes = database.ref("notes/" + userId);
-  urlNotes.on("value", (snapshot) => {
-    const data = snapshot.val();
-    // updateStarCount(postElement, data);
-    console.log("get data: ", snapshot.val());
+  return new Promise((resolve, reject) => {
+    urlNotes.on("value", (snapshot) => {
+      // const data = snapshot.val();
+      // updateStarCount(postElement, data);
+      console.log("get data: ", snapshot.val());
+      resolve(snapshot.val());
+    });
   });
 };
