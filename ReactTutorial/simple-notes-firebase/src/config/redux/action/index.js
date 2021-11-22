@@ -75,6 +75,15 @@ export const getDataFromAPI = (userId) => (dispatch) => {
       // const data = snapshot.val();
       // updateStarCount(postElement, data);
       console.log("get data: ", snapshot.val());
+
+      const data = [];
+      Object.keys(snapshot.val()).map((key) => {
+        data.push({
+          id: key,
+          data: snapshot.val()[key],
+        });
+      });
+      dispatch({ type: "SET_NOTES", value: data });
       resolve(snapshot.val());
     });
   });
