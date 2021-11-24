@@ -113,6 +113,7 @@ class Dashboard extends Component {
                   <p className="title">{note.data.title}</p>
                   <p className="data">{note.data.date}</p>
                   <p className="content">{note.data.content}</p>
+                  <div className="delete-btn">x</div>
                 </div>
               );
             })}
