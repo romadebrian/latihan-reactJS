@@ -45,13 +45,14 @@
       outline: none;
       &.cancel {
         border: 2px solid orange;
+        color: orange;
       }
     }
   }
   .action-warper {
     display: flex;
     justify-content: space-between;
-    width: 40&;
+    width: 40%;
   }
   .card-content {
     border: 1px solid rgba(0, 0, 0, 0.1);

@@ -46,10 +46,18 @@ class Dashboard extends Component {
     });
   };
 
+  cancelUpdate = () => {
+    this.setState({
+      title: "",
+      content: "",
+      textButton: "SIMPAN",
+    });
+  };
+
   render() {
     const { title, content, textButton } = this.state;
     const { notes } = this.props;
-    const { updateNotes } = this;
+    const { updateNotes, cancelUpdate } = this;
     console.log("notes ", notes);
     return (
       <div className="container">
@@ -67,11 +75,16 @@ class Dashboard extends Component {
             onChange={(e) => this.onInputChange(e, "content")}
           ></textarea>
           <div className="action-warper">
+            {textButton === "UPDATE" ? (
+              <button className="save-btn cancel" onClick={cancelUpdate}>
+                Cancel
+              </button>
+            ) : (
+              <div />
+            )}
+
             <button className="save-btn" onClick={this.handleSaveNotes}>
               {textButton}
-            </button>
-            <button className="save-btn" onClick={this.handleSaveNotes}>
-              Cancel
             </button>
           </div>
         </div>
