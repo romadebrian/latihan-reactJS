@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import {
   addDataAPI,
+  deleteDataAPI,
   getDataFromAPI,
   updateDataAPI,
 } from "../../../config/redux/action";
@@ -66,9 +67,15 @@ class Dashboard extends Component {
     });
   };
 
-  deleteNote = (e) => {
+  deleteNote = (e, note) => {
     e.stopPropagation();
-    alert("test");
+    const deleteNote = this.props;
+    const userData = JSON.parse(localStorage.getItem("userData"));
+    const data = {
+      userId: userData.uid,
+      noteId: note.id,
+    };
+    deleteNote(data);
   };
 
   render() {
@@ -118,7 +125,10 @@ class Dashboard extends Component {
                   <p className="title">{note.data.title}</p>
                   <p className="data">{note.data.date}</p>
                   <p className="content">{note.data.content}</p>
-                  <div className="delete-btn" onClick={(e) => deleteNote(e)}>
+                  <div
+                    className="delete-btn"
+                    onClick={(e) => deleteNote(e, note)}
+                  >
                     x
                   </div>
                 </div>
@@ -140,6 +150,7 @@ const reduxDispatch = (dispatch) => ({
   saveNotes: (data) => dispatch(addDataAPI(data)),
   getNotes: (data) => dispatch(getDataFromAPI(data)),
   updateNotes: (data) => dispatch(updateDataAPI(data)),
+  deleteNote: (data) => dispatch(deleteDataAPI(data)),
 });
 
 export default connect(reduxState, reduxDispatch)(Dashboard);
