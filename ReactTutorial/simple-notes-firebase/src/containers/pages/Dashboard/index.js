@@ -69,7 +69,7 @@ class Dashboard extends Component {
 
   deleteNote = (e, note) => {
     e.stopPropagation();
-    const deleteNote = this.props;
+    const { deleteNote } = this.props;
     const userData = JSON.parse(localStorage.getItem("userData"));
     const data = {
       userId: userData.uid,
