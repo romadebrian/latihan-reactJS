@@ -66,9 +66,14 @@ class Dashboard extends Component {
             value={content}
             onChange={(e) => this.onInputChange(e, "content")}
           ></textarea>
-          <button className="save-btn" onClick={this.handleSaveNotes}>
-            {textButton}
-          </button>
+          <div className="action-warper">
+            <button className="save-btn" onClick={this.handleSaveNotes}>
+              {textButton}
+            </button>
+            <button className="save-btn" onClick={this.handleSaveNotes}>
+              Cancel
+            </button>
+          </div>
         </div>
         <hr />
         {notes.length > 0 ? (
