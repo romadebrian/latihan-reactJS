@@ -66,10 +66,15 @@ class Dashboard extends Component {
     });
   };
 
+  deleteNote = (e) => {
+    e.stopPropagation();
+    alert("test");
+  };
+
   render() {
     const { title, content, textButton } = this.state;
     const { notes } = this.props;
-    const { updateNotes, cancelUpdate } = this;
+    const { updateNotes, cancelUpdate, deleteNote } = this;
     console.log("notes ", notes);
     return (
       <div className="container">
@@ -113,7 +118,9 @@ class Dashboard extends Component {
                   <p className="title">{note.data.title}</p>
                   <p className="data">{note.data.date}</p>
                   <p className="content">{note.data.content}</p>
-                  <div className="delete-btn">x</div>
+                  <div className="delete-btn" onClick={(e) => deleteNote(e)}>
+                    x
+                  </div>
                 </div>
               );
             })}
