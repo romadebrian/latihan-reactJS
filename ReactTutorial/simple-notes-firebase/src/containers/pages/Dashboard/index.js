@@ -36,7 +36,7 @@ class Dashboard extends Component {
       saveNotes(data);
     } else {
       data.noteId = noteId;
-      updateNotes();
+      updateNotes(data);
     }
 
     console.log(data);

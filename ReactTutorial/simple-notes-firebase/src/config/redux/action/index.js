@@ -92,12 +92,19 @@ export const getDataFromAPI = (userId) => (dispatch) => {
 export const updateDataAPI = (data) => (dispatch) => {
   const urlNotes = database.ref(`notes/${data.userId}/${data.noteId}`);
   return new Promise((resolve, reject) => {
-    urlNotes.set(data.body, (err) => {
-      if (err) {
-        reject(false);
-      } else {
-        resolve(true);
+    urlNotes.set(
+      {
+        title: data.title,
+        content: data.content,
+        date: data.date,
+      },
+      (err) => {
+        if (err) {
+          reject(false);
+        } else {
+          resolve(true);
+        }
       }
-    });
+    );
   });
 };
