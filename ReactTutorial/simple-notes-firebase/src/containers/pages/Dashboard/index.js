@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import { addDataAPI, getDataFromAPI } from "../../../config/redux/action";
 import "./Dashboard.scss";
@@ -60,11 +60,19 @@ class Dashboard extends Component {
           </button>
         </div>
         <hr />
-        <div className="card-content">
-          <p className="title">Title</p>
-          <p className="data">21 Sep 2021</p>
-          <p className="content">Content Notes</p>
-        </div>
+        {notes.length > 0 ? (
+          <Fragment>
+            {notes.map((note) => {
+              return (
+                <div className="card-content" key={note.id}>
+                  <p className="title">{note.data.title}</p>
+                  <p className="data">{note.data.date}</p>
+                  <p className="content">{note.data.content}</p>
+                </div>
+              );
+            })}
+          </Fragment>
+        ) : null}
       </div>
     );
   }
