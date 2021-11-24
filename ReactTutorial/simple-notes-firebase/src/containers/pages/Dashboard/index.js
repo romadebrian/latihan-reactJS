@@ -1,6 +1,10 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
-import { addDataAPI, getDataFromAPI } from "../../../config/redux/action";
+import {
+  addDataAPI,
+  getDataFromAPI,
+  updateDataAPI,
+} from "../../../config/redux/action";
 import "./Dashboard.scss";
 
 class Dashboard extends Component {
@@ -9,6 +13,7 @@ class Dashboard extends Component {
     content: "",
     date: "",
     textButton: "SIMPAN",
+    noteId: "",
   };
 
   componentDidMount() {
@@ -17,8 +22,8 @@ class Dashboard extends Component {
   }
 
   handleSaveNotes = () => {
-    const { title, content } = this.state;
-    const { saveNotes } = this.props;
+    const { title, content, textButton, noteId } = this.state;
+    const { saveNotes, updateNotes } = this.props;
     const userData = JSON.parse(localStorage.getItem("userData"));
 
     const data = {
@@ -27,7 +32,13 @@ class Dashboard extends Component {
       date: new Date().getTime(),
       userId: userData.uid,
     };
-    saveNotes(data);
+    if (textButton === "SIMPAN") {
+      saveNotes(data);
+    } else {
+      data.noteId = noteId;
+      updateNotes();
+    }
+
     console.log(data);
   };
 
@@ -43,6 +54,7 @@ class Dashboard extends Component {
       title: note.data.title,
       content: note.data.content,
       textButton: "UPDATE",
+      noteId: note.id,
     });
   };
 
@@ -119,6 +131,7 @@ const reduxState = (state) => ({
 const reduxDispatch = (dispatch) => ({
   saveNotes: (data) => dispatch(addDataAPI(data)),
   getNotes: (data) => dispatch(getDataFromAPI(data)),
+  updateNotes: (data) => dispatch(updateDataAPI(data)),
 });
 
 export default connect(reduxState, reduxDispatch)(Dashboard);
