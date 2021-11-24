@@ -43,7 +43,15 @@
       font-weight: bold;
       text-transform: uppercase;
       outline: none;
+      &.cancel {
+        border: 2px solid orange;
+      }
     }
+  }
+  .action-warper {
+    display: flex;
+    justify-content: space-between;
+    width: 40&;
   }
   .card-content {
     border: 1px solid rgba(0, 0, 0, 0.1);
