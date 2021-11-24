@@ -51,6 +51,9 @@
     padding: 16px;
     box-shadow: 4px 3px 9px rgba(0, 0, 0, 0.1);
     margin-bottom: 16px;
+    &:hover {
+      cursor: pointer;
+    }
     p {
       margin: 0;
     }
