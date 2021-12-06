@@ -41,7 +41,7 @@ const ReactFirebaseFileUpload = () => {
 
   return (
     <div>
-      <progress value={progress} max="100" />
+      <progress value={progress} max="100" /> <span>{progress}%</span>
       <br />
       <input type="file" onChange={handleChange} />
       <button onClick={handleUpload}>Upload</button>
