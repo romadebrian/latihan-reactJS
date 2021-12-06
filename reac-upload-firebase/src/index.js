@@ -46,7 +46,12 @@ const ReactFirebaseFileUpload = () => {
       <input type="file" onChange={handleChange} />
       <button onClick={handleUpload}>Upload</button>
       <br />
-      <img src={url} alt="firebase-image" />
+      {url}
+      <br />
+      <img
+        src={url || "http://via.placeholder.com/300x300"}
+        alt="firebase-image"
+      />
     </div>
   );
 };
