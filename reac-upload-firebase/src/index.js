@@ -50,7 +50,7 @@ const ReactFirebaseFileUpload = () => {
       <br />
       <img
         src={url || "http://via.placeholder.com/300x300"}
-        alt="firebase-image"
+        alt="firebaseImageExample"
       />
     </div>
   );
