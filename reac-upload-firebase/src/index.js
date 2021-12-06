@@ -4,6 +4,7 @@ import { storage } from "./firebase";
 
 const ReactFirebaseFileUpload = () => {
   const [image, setimage] = useState(null);
+  const [url, setUrl] = useState("");
 
   const handleChange = (e) => {
     if (e.target.files[0]) {
@@ -25,7 +26,8 @@ const ReactFirebaseFileUpload = () => {
           .child(image.name)
           .getDownloadURL()
           .then((url) => {
-            console.log(url);
+            // console.log(url);
+            setUrl(url);
           });
       }
     );
