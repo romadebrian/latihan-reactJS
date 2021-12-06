@@ -39,6 +39,7 @@ const ReactFirebaseFileUpload = () => {
       <br />
       <input type="file" onChange={handleChange} />
       <button onClick={handleUpload}>Upload</button>
+      {url}
     </div>
   );
 };
