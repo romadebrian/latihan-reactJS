@@ -82,7 +82,7 @@ class Dashboard extends Component {
     const { title, content, textButton } = this.state;
     const { notes } = this.props;
     const { updateNotes, cancelUpdate, deleteNote } = this;
-    console.log("notes ", notes);
+    console.log("notesArray ", notes);
     return (
       <div className="container">
         <div className="input-form">

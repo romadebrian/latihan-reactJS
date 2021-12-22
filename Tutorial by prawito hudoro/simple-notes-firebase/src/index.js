@@ -3,8 +3,8 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./containers/pages/App";
 import reportWebVitals from "./reportWebVitals";
-// import firebase from "./config/firebase";
 
+// import firebase from "./config/firebase";
 // console.log("config firebase ==> ", firebase);
 
 ReactDOM.render(
